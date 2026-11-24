@@ -1,0 +1,60 @@
+Clap Vamp Plugin - Third-party notices
+======================================
+
+The Clap Vamp Plugin is distributed under the MIT License (see
+Clap-Vamp-Plugin.txt). It includes the following third-party software and
+models, which remain under their own licenses. The full texts of the licenses
+are in this folder.
+
+Software
+--------
+
+- Clap.cpp (https://github.com/gorse-io/clap.cpp)
+  Copyright 2026 clap.cpp Authors
+  License: Apache License 2.0 (Apache-2.0.txt)
+
+- ggml (https://github.com/ggml-org/ggml), included in Clap.cpp
+  Copyright (c) 2023-2026 The ggml authors
+  License: MIT License (ggml.txt)
+  ggml contains the YaRN algorithm based on https://github.com/jquesnelle/yarn,
+  MIT licensed, Copyright (c) 2023 Jeffrey Quesnelle and Bowen Peng.
+
+- ICU (https://github.com/unicode-org/icu), included in Clap.cpp
+  Copyright (c) 2016-2025 Unicode, Inc.
+  License: Unicode License V3 (icu.txt)
+
+- JSON for Modern C++ (https://github.com/nlohmann/json), included in Clap.cpp
+  Copyright (c) 2013-2025 Niels Lohmann
+  License: MIT License (nlohmann-json.txt)
+
+- miniaudio (https://github.com/mackron/miniaudio), included in Clap.cpp
+  Public domain (Unlicense) or MIT No Attribution (miniaudio.txt)
+
+- Vamp Plugin SDK (https://github.com/vamp-plugins/vamp-plugin-sdk)
+  Copyright (c) 2005-2006 Chris Cannam
+  Copyright (c) 2006-2024 Queen Mary, University of London
+  License: MIT-style license (vamp-plugin-sdk.txt)
+  The Vamp Plugin SDK contains KissFFT, Copyright (c) 2003-2010 Mark Borgerding,
+  BSD 3-Clause license (vamp-plugin-sdk.txt)
+
+- Ircam Vamp Extension (https://github.com/Ircam-Partiels/ircam-vamp-extension)
+  Copyright (c) 2024 Pierre Guillot, IRCAM
+  License: MIT License (ircam-vamp-extension.txt)
+
+Models
+------
+
+The models embedded in the Resources/models folder of the plugin bundle are
+developed by LAION (https://laion.ai/) and converted to the GGUF format
+(with quantization for the q8_0 and q4_k_m variants) by the Clap.cpp project
+(https://huggingface.co/gorse-io). They are distributed under the Apache
+License 2.0 (Apache-2.0.txt).
+
+- larger_clap_general (q8_0 and q4_k_m)
+  https://huggingface.co/laion/larger_clap_general
+- larger_clap_music_and_speech (q8_0 and q4_k_m)
+  https://huggingface.co/laion/larger_clap_music_and_speech
+- clap2-small-audioxl-s1B (f16)
+  https://huggingface.co/laion/clap2-small-audioxl-s1B
+- clap2-xxs-audioxl-s1B (f16)
+  https://huggingface.co/laion/clap2-xxs-audioxl-s1B
