@@ -1,0 +1,8 @@
+The Clap plugins are implementations of the CLAP and CLAP2 audio-text models developed by LAION as Vamp plugins. The CLAP Prompt plugin analyses the audio stream with text prompts provided as precomputed markers (optionally organized hierarchically) and generates similarity scores and tags for the most similar prompts. The CLAP Example plugin compares the audio stream with annotated audio regions to tag it by example and find similar sounds. The CLAP Novelty plugin detects the changes in the audio stream.
+
+- Clap Vamp plug-in by Pierre Guillot at Ircam (https://www.ircam.fr/)
+- CLAP and CLAP2 models by LAION (https://laion.ai/)
+- Clap.cpp by Gorse (https://gorse.io/)
+- Vamp by the Centre for Digital Music, Queen Mary, University of London (www.vamp-plugins.org)
+
+The Clap Vamp plug-in is distributed under the MIT License. Clap.cpp and the embedded models are distributed under the Apache License 2.0. The third-party notices and licenses are in the Resources/licenses folder of the plugin bundle.
