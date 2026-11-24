@@ -1,0 +1,8 @@
+build*
+release
+package
+*.zip
+*.tar
+*.pdf
+.DS_Store
+*_ConsolidatedFiles

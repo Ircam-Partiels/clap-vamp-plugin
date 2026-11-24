@@ -1,0 +1,2162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<document MiscModelVersion="132608" viewport_x="0" viewport_y="0" path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/clap.ptldoc"
+          grid="1" autoresize="0" samplerate="44100.0" channels="1" description="">
+  <reader>
+    <value file="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/cvp.wav"
+           channel="0"/>
+  </reader>
+  <layout value="dcec1b1226a141cb986786040f69680c"/>
+  <layout value="780342eb4d8a4ae7850f772c091caa14"/>
+  <layout value="0cbca15363f34e82af09c599fdff328c"/>
+  <layout value="47c59737c9fd41dbbe49834aab157ce7"/>
+  <timeZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="10.0"
+            minimumLength="0.01160997732426304" visibleRange_start="0.0"
+            visibleRange_end="10.0">
+    <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="0"
+          tickPowerBase="2.0" tickDivisionFactor="10.0"/>
+  </timeZoom>
+  <transport MiscModelVersion="132608" startPlayhead="6.565164433617539" looping="0"
+             loopRange_start="0.0" loopRange_end="0.0" stopAtLoopEnd="0" autoScroll="1"
+             gain="1.0" magnetize="0"/>
+  <groups MiscModelVersion="132608" identifier="0cbca15363f34e82af09c599fdff328c"
+          name="Prompt" height="145" colour="0" expanded="0" referenceid="">
+    <layout value="038250240b674320b0491ba5edb07f11"/>
+    <layout value="088d33ab8a9249e2a0777236de59ac7b"/>
+    <layout value="de4f64e28ea541dd888aad83eb500ba4"/>
+    <layout value="de7e1f453b3b4270b63ec4b7b0be41bc"/>
+    <layout value="37abd7eb5f98430289fd678046081bc4"/>
+    <layout value="fe755441f35a43d696560dc8ff1dedc0"/>
+    <layout value="95121f8b17dc47deb4535513aa6090bc"/>
+    <layout value="ec707fcca593429c914e46a6ac084e27"/>
+    <layout value="15d2a42394e542feb283c5bef153a814"/>
+    <zoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="1.0"
+          minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="1.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </zoom>
+  </groups>
+  <groups MiscModelVersion="132608" identifier="47c59737c9fd41dbbe49834aab157ce7"
+          name="Classes" height="145" colour="0" expanded="0" referenceid="">
+    <layout value="ce985c271b7b4fe89b5ee6f96ea36edc"/>
+    <layout value="3c7b46ce4d534244b77669c0ed91a216"/>
+    <zoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="1.0"
+          minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="1.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </zoom>
+  </groups>
+  <groups MiscModelVersion="132608" identifier="dcec1b1226a141cb986786040f69680c"
+          name="Noverty" height="145" colour="0" expanded="0" referenceid="cc6537e036224f748214da27f75a6725">
+    <layout value="530efd68b4514cf4993b2185b5112807"/>
+    <layout value="cb2c5bba98344175a745db951c1a2d59"/>
+    <layout value="cc6537e036224f748214da27f75a6725"/>
+    <zoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="1.0"
+          minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="1.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </zoom>
+  </groups>
+  <groups MiscModelVersion="132608" identifier="780342eb4d8a4ae7850f772c091caa14"
+          name="Reference" height="146" colour="0" expanded="0" referenceid="">
+    <layout value="1188cb0d36174d35827cee0e8918cfed"/>
+    <layout value="7b337ac776f043039460b810d9b8b476"/>
+    <layout value="a459296f46954b799a829b517300c9d5"/>
+    <zoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="1.0"
+          minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.2627213997127388">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </zoom>
+  </groups>
+  <tracks MiscModelVersion="132608" identifier="3c7b46ce4d534244b77669c0ed91a216"
+          name="CLAP Prompt Similarity Matrix" voiceLink="" useInputResultsExtraThresholds="0"
+          sampleRate="44100.0" height="42" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="1" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="CLAP Prompt" inputDomain="0" maker="Ircam" version="1"
+                 category="Zero Shot Audio Tagging" details="Zero-shot audio tagging using the CLAP and CLAP2 audio-text models of LAION. The plugin compares the embedding of each audio window with the embeddings of the text prompts provided as precomputed markers, one marker per prompt (for example generated by the tools or annotations of the host), and generates over time the similarity scores of all the prompts as well as tags carrying the most similar prompt with its score (that can be used to filter the tags in the host). The prompts can be organized hierarchically with slashes (for example, Animal/Bird/Owl): a level is represented by the average embedding of its text and of the texts of its sublevels, and the tag is the most similar prompt among all the levels (a level is selected when its sublevels do not match the audio better). The plugin also generates the probabilities of the prompts, computed with the softmax of the similarity scores among the prompts of the same level, scaled by the temperature of the model (the probability of a sublevel is the probability of its level multiplied by its probability among the sublevels). The models are trained with English captions, hence the prompts must be written in English (the audio can contain speech in any language)."
+                 copyright="CLAP and CLAP2 models by LAION. CLAP.cpp by Gorse. Clap Vamp Plugin by Pierre Guillot. Copyright 2026 Ircam. MIT License.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3">
+        <parameters key="hopsize" value="1.0"/>
+        <parameters key="model" value="0.0"/>
+        <parameters key="windowsize" value="10.0"/>
+      </defaultState>
+      <parameters>
+        <value identifier="model" name="Model" description="The model used to generate the embeddings (the embedded models are listed first, followed by the models of the directory defined by the CLAPMODELSPATH environment variable)"
+               unit="" minValue="0.0" maxValue="5.0" defaultValue="0.0" isQuantized="1"
+               quantizeStep="1.0" isAlias="0">
+          <valueNames value="1. CLAP2 Small (F16)"/>
+          <valueNames value="2. CLAP2 XXS (F16)"/>
+          <valueNames value="3. CLAP General (Q8_0)"/>
+          <valueNames value="4. CLAP General (Q4_K_M)"/>
+          <valueNames value="5. CLAP Music and Speech (Q8_0)"/>
+          <valueNames value="6. CLAP Music and Speech (Q4_K_M)"/>
+        </value>
+      </parameters>
+      <parameters>
+        <value identifier="windowsize" name="Window Size" description="The duration of the analysis windows, in seconds"
+               unit="s" minValue="1.0" maxValue="10.0" defaultValue="10.0" isQuantized="1"
+               quantizeStep="0.5" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="hopsize" name="Hop Size" description="The duration between two analysis windows, in seconds (the computation time is proportional to the number of windows)"
+               unit="s" minValue="0.1000000014901161" maxValue="10.0" defaultValue="1.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <output identifier="similarity" name="Class Scores" description="The similarity scores between the audio window and each text prompt (the levels of the hierarchical prompts are inserted before their sublevels)"
+              unit="" hasFixedBinCount="1" binCount="63" hasKnownExtents="1"
+              minValue="0.0" maxValue="0.5" isQuantized="0" quantizeStep="0.0"
+              sampleType="2" sampleRate="0.0" hasDuration="1">
+        <binNames value="Animal"/>
+        <binNames value="Animal/Bird"/>
+        <binNames value="Animal/Bird/Pigeon"/>
+        <binNames value="Animal/Bird/Sparrow"/>
+        <binNames value="Animal/Bird/Blackbird"/>
+        <binNames value="Animal/Bird/Robin"/>
+        <binNames value="Animal/Bird/Great Tit"/>
+        <binNames value="Animal/Bird/Magpie"/>
+        <binNames value="Animal/Bird/Crow"/>
+        <binNames value="Animal/Bird/Seagull"/>
+        <binNames value="Animal/Bird/Swift"/>
+        <binNames value="Animal/Dog"/>
+        <binNames value="Animal/Dog/Barking"/>
+        <binNames value="Animal/Cat"/>
+        <binNames value="Animal/Cat/Meowing"/>
+        <binNames value="Animal/Insect"/>
+        <binNames value="Animal/Insect/Bee"/>
+        <binNames value="Animal/Insect/Fly"/>
+        <binNames value="Vehicle"/>
+        <binNames value="Vehicle/Car"/>
+        <binNames value="Vehicle/Bus"/>
+        <binNames value="Vehicle/Truck"/>
+        <binNames value="Vehicle/Motorcycle"/>
+        <binNames value="Vehicle/Scooter"/>
+        <binNames value="Vehicle/Bicycle"/>
+        <binNames value="Vehicle/Tram"/>
+        <binNames value="Vehicle/Train"/>
+        <binNames value="Vehicle/Horn"/>
+        <binNames value="Vehicle/Airplane"/>
+        <binNames value="Vehicle/Helicopter"/>
+        <binNames value="Building"/>
+        <binNames value="Building/Church"/>
+        <binNames value="Building/Church/Bells"/>
+        <binNames value="Building/Train Station"/>
+        <binNames value="Building/Train Station/Announcement"/>
+        <binNames value="Building/Train Station/Whistle"/>
+        <binNames value="Building/School"/>
+        <binNames value="Building/School/Bell"/>
+        <binNames value="Building/Construction Site"/>
+        <binNames value="Building/Construction Site/Jackhammer"/>
+        <binNames value="Building/Construction Site/Drill"/>
+        <binNames value="Building/Door"/>
+        <binNames value="Building/Door/Slam"/>
+        <binNames value="People"/>
+        <binNames value="People/Baby"/>
+        <binNames value="People/Baby/Crying"/>
+        <binNames value="People/Baby/Babbling"/>
+        <binNames value="People/Child"/>
+        <binNames value="People/Child/Speaking"/>
+        <binNames value="People/Child/Laughing"/>
+        <binNames value="People/Child/Shouting"/>
+        <binNames value="People/Adult"/>
+        <binNames value="People/Adult/Speaking"/>
+        <binNames value="People/Adult/Laughing"/>
+        <binNames value="People/Adult/Coughing"/>
+        <binNames value="People/Adult/Whistling"/>
+        <binNames value="People/Crowd"/>
+        <binNames value="People/Crowd/Chatter"/>
+        <binNames value="People/Footsteps"/>
+        <binNames value="Nature"/>
+        <binNames value="Nature/Wind in Trees"/>
+        <binNames value="Nature/Rain"/>
+        <binNames value="Nature/Fountain"/>
+      </output>
+      <inputs>
+        <value identifier="prompt" name="Prompt" description="The text prompts to compare with the audio, one marker per prompt (e.g. generated by the tools or the annotations of the host), the levels of the hierarchical prompts being separated by slashes (e.g. Animal/A bird sings./An owl hoots.)"
+               unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+               minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+               sampleType="2" sampleRate="0.0" hasDuration="0"/>
+      </inputs>
+    </description>
+    <key identifier="ircamclap:clapprompt" feature="similarity"/>
+    <inputs key="prompt" value="ce985c271b7b4fe89b5ee6f96ea36edc"/>
+    <state blockSize="1024" stepSize="0" windowType="3">
+      <parameters key="hopsize" value="0.5"/>
+      <parameters key="model" value="1.0"/>
+      <parameters key="threshold" value="0.1500000059604645"/>
+      <parameters key="windowsize" value="2.0"/>
+    </state>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ff05ffe2" duration="2f7e7a7d"
+               text="ff05ffe2" shadow="0"/>
+      <labelLayout position="12.0" justification="1"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.5"
+               minimumLength="1.192092895507812e-7" visibleRange_start="0.1440769135951996"
+               visibleRange_end="0.3607158660888672">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="63.0"
+             minimumLength="1.0" visibleRange_start="0.0" visibleRange_end="63.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="ec707fcca593429c914e46a6ac084e27"
+          name="CLAP Prompt - Animals" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="CLAP Prompt" inputDomain="0" maker="Ircam" version="1"
+                 category="Zero Shot Audio Tagging" details="Zero-shot audio tagging using the CLAP and CLAP2 audio-text models of LAION. The plugin compares the embedding of each audio window with the embeddings of the text prompts provided as precomputed markers, one marker per prompt (for example generated by the tools or annotations of the host), and generates over time the similarity scores of all the prompts as well as tags carrying the most similar prompt with its score (that can be used to filter the tags in the host). The prompts can be organized hierarchically with slashes (for example, Animal/Bird/Owl): a level is represented by the average embedding of its text and of the texts of its sublevels, and the tag is the most similar prompt among all the levels (a level is selected when its sublevels do not match the audio better). The plugin also generates the probabilities of the prompts, computed with the softmax of the similarity scores among the prompts of the same level, scaled by the temperature of the model (the probability of a sublevel is the probability of its level multiplied by its probability among the sublevels). The models are trained with English captions, hence the prompts must be written in English (the audio can contain speech in any language)."
+                 copyright="CLAP and CLAP2 models by LAION. CLAP.cpp by Gorse. Clap Vamp Plugin by Pierre Guillot. Copyright 2026 Ircam. MIT License.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3">
+        <parameters key="hopsize" value="1.0"/>
+        <parameters key="model" value="0.0"/>
+        <parameters key="windowsize" value="10.0"/>
+      </defaultState>
+      <parameters>
+        <value identifier="model" name="Model" description="The model used to generate the embeddings (the embedded models are listed first, followed by the models of the directory defined by the CLAPMODELSPATH environment variable)"
+               unit="" minValue="0.0" maxValue="5.0" defaultValue="0.0" isQuantized="1"
+               quantizeStep="1.0" isAlias="0">
+          <valueNames value="1. CLAP2 Small (F16)"/>
+          <valueNames value="2. CLAP2 XXS (F16)"/>
+          <valueNames value="3. CLAP General (Q8_0)"/>
+          <valueNames value="4. CLAP General (Q4_K_M)"/>
+          <valueNames value="5. CLAP Music and Speech (Q8_0)"/>
+          <valueNames value="6. CLAP Music and Speech (Q4_K_M)"/>
+        </value>
+      </parameters>
+      <parameters>
+        <value identifier="windowsize" name="Window Size" description="The duration of the analysis windows, in seconds"
+               unit="s" minValue="1.0" maxValue="10.0" defaultValue="10.0" isQuantized="1"
+               quantizeStep="0.5" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="hopsize" name="Hop Size" description="The duration between two analysis windows, in seconds (the computation time is proportional to the number of windows)"
+               unit="s" minValue="0.1000000014901161" maxValue="10.0" defaultValue="1.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <output identifier="tag" name="Best Class" description="The most similar prompt of the audio window among all the levels of the hierarchical prompts, with its similarity score"
+              unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+              minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="2" sampleRate="0.0" hasDuration="1"/>
+      <extraOutputs>
+        <value identifier="similarity" name="Similarity" description="The similarity score of the tagged prompt"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="0.5" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <extraOutputs>
+        <value identifier="probability" name="Probability" description="The probability of the tagged prompt"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="1.0" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <inputs>
+        <value identifier="prompt" name="Prompt" description="The text prompts to compare with the audio, one marker per prompt (e.g. generated by the tools or the annotations of the host), the levels of the hierarchical prompts being separated by slashes (e.g. Animal/A bird sings./An owl hoots.)"
+               unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+               minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+               sampleType="2" sampleRate="0.0" hasDuration="0"/>
+      </inputs>
+    </description>
+    <key identifier="ircamclap:clapprompt" feature="tag"/>
+    <inputs key="prompt" value="038250240b674320b0491ba5edb07f11"/>
+    <state blockSize="1024" stepSize="0" windowType="3">
+      <parameters key="hopsize" value="0.5"/>
+      <parameters key="model" value="7.0"/>
+      <parameters key="threshold" value="0.0"/>
+      <parameters key="windowsize" value="2.0"/>
+    </state>
+    <graphicsSettings font="Nunito Sans; 16.0 Regular" lineWidth="1.0" markerStyle="1">
+      <colours map="7" background="0" foreground="ff00ffdd" duration="ff00ffdd"
+               text="ff00ffdd" shadow="0"/>
+      <labelLayout position="6.661338147750939e-15" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <extraThresholds>
+      <value value="0.2169769555330276"/>
+    </extraThresholds>
+    <extraThresholds>
+      <value value="0.0"/>
+    </extraThresholds>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="cb2c5bba98344175a745db951c1a2d59"
+          name="CLAP Novelty - Novelty" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="39" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="2" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="CLAP Novelty" inputDomain="0" maker="Ircam" version="1"
+                 category="Segmentation" details="Detection of the changes in the audio stream using the audio embeddings of the CLAP and CLAP2 models of LAION, without text prompt nor reference. At each boundary between two analysis windows, the plugin compares the average embedding of the windows entirely before the boundary with the average embedding of the windows entirely after the boundary, over the duration of the Context parameter. The windows shortened at the beginning and at the end of the audio stream are ignored, hence the novelty is zero (no change is considered) during approximately the window size at the beginning and at the end of the audio stream. The novelty is the cosine distance between the two embeddings, between 0 (the content does not change) and 2 (in practice, the audio embeddings remain similar and the novelty rarely exceeds 0.5). The boundaries are the peaks of the novelty, separated by at least the context duration, with the novelty as value (the boundaries can be filtered by the host according to this value). The features are generated at the end of the analysis."
+                 copyright="CLAP and CLAP2 models by LAION. CLAP.cpp by Gorse. Clap Vamp Plugin by Pierre Guillot. Copyright 2026 Ircam. MIT License.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3">
+        <parameters key="context" value="5.0"/>
+        <parameters key="hopsize" value="1.0"/>
+        <parameters key="model" value="0.0"/>
+        <parameters key="windowsize" value="5.0"/>
+      </defaultState>
+      <parameters>
+        <value identifier="model" name="Model" description="The model used to generate the embeddings (the embedded models are listed first, followed by the models of the directory defined by the CLAPMODELSPATH environment variable)"
+               unit="" minValue="0.0" maxValue="5.0" defaultValue="0.0" isQuantized="1"
+               quantizeStep="1.0" isAlias="0">
+          <valueNames value="1. CLAP2 Small (F16)"/>
+          <valueNames value="2. CLAP2 XXS (F16)"/>
+          <valueNames value="3. CLAP General (Q8_0)"/>
+          <valueNames value="4. CLAP General (Q4_K_M)"/>
+          <valueNames value="5. CLAP Music and Speech (Q8_0)"/>
+          <valueNames value="6. CLAP Music and Speech (Q4_K_M)"/>
+        </value>
+      </parameters>
+      <parameters>
+        <value identifier="windowsize" name="Window Size" description="The duration of the analysis windows, in seconds"
+               unit="s" minValue="1.0" maxValue="10.0" defaultValue="5.0" isQuantized="1"
+               quantizeStep="0.5" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="hopsize" name="Hop Size" description="The duration between two analysis windows, in seconds (the computation time is proportional to the number of windows)"
+               unit="s" minValue="0.1000000014901161" maxValue="10.0" defaultValue="1.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="context" name="Context" description="The duration compared before and after each boundary and the minimum duration between two detected boundaries, in seconds"
+               unit="s" minValue="0.1000000014901161" maxValue="60.0" defaultValue="5.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <output identifier="novelty" name="Novelty" description="The novelty at each boundary between two analysis windows (the cosine distance between the average embeddings before and after the boundary, zero at the beginning and at the end of the audio stream)"
+              unit="" hasFixedBinCount="1" binCount="1" hasKnownExtents="1"
+              minValue="0.0" maxValue="0.300000011920929" isQuantized="0" quantizeStep="0.0"
+              sampleType="2" sampleRate="0.0" hasDuration="0"/>
+    </description>
+    <key identifier="ircamclap:clapnovelty" feature="novelty"/>
+    <state blockSize="1024" stepSize="0" windowType="3">
+      <parameters key="context" value="1.0"/>
+      <parameters key="hopsize" value="0.2000000029802322"/>
+      <parameters key="model" value="7.0"/>
+      <parameters key="windowsize" value="1.0"/>
+    </state>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="66000000"
+               text="ff000000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.6781497597694397"
+               minimumLength="1.192092895507812e-7" visibleRange_start="0.0"
+               visibleRange_end="0.6781497597694397">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="cc6537e036224f748214da27f75a6725"
+          name="Waveform - Peak" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="38" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="1" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="Waveform" inputDomain="0" maker="Factory" version="1" category=""
+                 details="Display the waveform of the audio." copyright="Partiels factory plugin.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3"/>
+      <output identifier="peaks" name="Peak" description="Peak from the input signal"
+              unit="" hasFixedBinCount="1" binCount="1" hasKnownExtents="1"
+              minValue="-1.0" maxValue="1.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="1" sampleRate="0.0" hasDuration="0"/>
+    </description>
+    <key identifier="partiels-vamp-plugins:partielswaveform" feature="peaks"/>
+    <state blockSize="1024" stepSize="0" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ff005dff" duration="660c65ff"
+               text="0" shadow="ff000000"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="-1.0" globalRange_end="1.0"
+               minimumLength="1.192092895507812e-7" visibleRange_start="-1.0"
+               visibleRange_end="1.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="ce985c271b7b4fe89b5ee6f96ea36edc"
+          name="classes_all" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="43" showInGroup="0" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_all.csv"
+          commit=""/>
+    <fileDescription path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_all.csv"
+                     format="1" extension=".csv" csvHeaderType="2" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="" inputDomain="0" maker="" version="0" category="" details=""
+                 copyright="">
+      <defaultState blockSize="0" stepSize="0" windowType="3"/>
+      <output identifier="" name="" description="" unit="" hasFixedBinCount="0"
+              binCount="0" hasKnownExtents="0" minValue="0.0" maxValue="0.0"
+              isQuantized="0" quantizeStep="0.0" sampleType="0" sampleRate="0.0"
+              hasDuration="0"/>
+    </description>
+    <key identifier="" feature=""/>
+    <state blockSize="0" stepSize="0" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="66000000"
+               text="ff000000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="038250240b674320b0491ba5edb07f11"
+          name="classes_animals" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="0" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_animals.csv"
+          commit=""/>
+    <fileDescription path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_animals.csv"
+                     format="1" extension=".csv" csvHeaderType="2" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="" inputDomain="0" maker="" version="0" category="" details=""
+                 copyright="">
+      <defaultState blockSize="0" stepSize="0" windowType="3"/>
+      <output identifier="" name="" description="" unit="" hasFixedBinCount="0"
+              binCount="0" hasKnownExtents="0" minValue="0.0" maxValue="0.0"
+              isQuantized="0" quantizeStep="0.0" sampleType="0" sampleRate="0.0"
+              hasDuration="0"/>
+    </description>
+    <key identifier="" feature=""/>
+    <state blockSize="0" stepSize="0" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 16.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="66000000"
+               text="ff000000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="088d33ab8a9249e2a0777236de59ac7b"
+          name="classes_buildings" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="0" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_buildings.csv"
+          commit=""/>
+    <fileDescription path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_buildings.csv"
+                     format="1" extension=".csv" csvHeaderType="2" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="" inputDomain="0" maker="" version="0" category="" details=""
+                 copyright="">
+      <defaultState blockSize="0" stepSize="0" windowType="3"/>
+      <output identifier="" name="" description="" unit="" hasFixedBinCount="0"
+              binCount="0" hasKnownExtents="0" minValue="0.0" maxValue="0.0"
+              isQuantized="0" quantizeStep="0.0" sampleType="0" sampleRate="0.0"
+              hasDuration="0"/>
+    </description>
+    <key identifier="" feature=""/>
+    <state blockSize="0" stepSize="0" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 16.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="66000000"
+               text="ff000000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="de4f64e28ea541dd888aad83eb500ba4"
+          name="classes_people" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="0" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_people.csv"
+          commit=""/>
+    <fileDescription path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_people.csv"
+                     format="1" extension=".csv" csvHeaderType="2" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="" inputDomain="0" maker="" version="0" category="" details=""
+                 copyright="">
+      <defaultState blockSize="0" stepSize="0" windowType="3"/>
+      <output identifier="" name="" description="" unit="" hasFixedBinCount="0"
+              binCount="0" hasKnownExtents="0" minValue="0.0" maxValue="0.0"
+              isQuantized="0" quantizeStep="0.0" sampleType="0" sampleRate="0.0"
+              hasDuration="0"/>
+    </description>
+    <key identifier="" feature=""/>
+    <state blockSize="0" stepSize="0" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 16.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="66000000"
+               text="ff000000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="de7e1f453b3b4270b63ec4b7b0be41bc"
+          name="classes_vehicles" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="0" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_vehicles.csv"
+          commit=""/>
+    <fileDescription path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/classes_vehicles.csv"
+                     format="1" extension=".csv" csvHeaderType="2" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="" inputDomain="0" maker="" version="0" category="" details=""
+                 copyright="">
+      <defaultState blockSize="0" stepSize="0" windowType="3"/>
+      <output identifier="" name="" description="" unit="" hasFixedBinCount="0"
+              binCount="0" hasKnownExtents="0" minValue="0.0" maxValue="0.0"
+              isQuantized="0" quantizeStep="0.0" sampleType="0" sampleRate="0.0"
+              hasDuration="0"/>
+    </description>
+    <key identifier="" feature=""/>
+    <state blockSize="0" stepSize="0" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 16.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="66000000"
+               text="ff000000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="15d2a42394e542feb283c5bef153a814"
+          name="Spectrogram - Energy" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="1" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="Spectrogram" inputDomain="1" maker="Factory" version="1"
+                 category="" details="Display the spectrogram of the audio." copyright="Partiels factory plugin.">
+      <defaultState blockSize="1024" stepSize="512" windowType="3"/>
+      <output identifier="energies" name="Energy" description="Amplitude of the frequency bins in decibels relative to full scale (a full-scale sinusoid is at 0 dB)"
+              unit="dB" hasFixedBinCount="1" binCount="513" hasKnownExtents="1"
+              minValue="-120.0" maxValue="6.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="0" sampleRate="0.0" hasDuration="0">
+        <binNames value="0.0Hz"/>
+        <binNames value="43.1Hz"/>
+        <binNames value="86.1Hz"/>
+        <binNames value="129.2Hz"/>
+        <binNames value="172.3Hz"/>
+        <binNames value="215.3Hz"/>
+        <binNames value="258.4Hz"/>
+        <binNames value="301.5Hz"/>
+        <binNames value="344.5Hz"/>
+        <binNames value="387.6Hz"/>
+        <binNames value="430.7Hz"/>
+        <binNames value="473.7Hz"/>
+        <binNames value="516.8Hz"/>
+        <binNames value="559.9Hz"/>
+        <binNames value="602.9Hz"/>
+        <binNames value="646.0Hz"/>
+        <binNames value="689.1Hz"/>
+        <binNames value="732.1Hz"/>
+        <binNames value="775.2Hz"/>
+        <binNames value="818.3Hz"/>
+        <binNames value="861.3Hz"/>
+        <binNames value="904.4Hz"/>
+        <binNames value="947.5Hz"/>
+        <binNames value="990.5Hz"/>
+        <binNames value="1033.6Hz"/>
+        <binNames value="1076.7Hz"/>
+        <binNames value="1119.7Hz"/>
+        <binNames value="1162.8Hz"/>
+        <binNames value="1205.9Hz"/>
+        <binNames value="1248.9Hz"/>
+        <binNames value="1292.0Hz"/>
+        <binNames value="1335.1Hz"/>
+        <binNames value="1378.1Hz"/>
+        <binNames value="1421.2Hz"/>
+        <binNames value="1464.3Hz"/>
+        <binNames value="1507.3Hz"/>
+        <binNames value="1550.4Hz"/>
+        <binNames value="1593.5Hz"/>
+        <binNames value="1636.5Hz"/>
+        <binNames value="1679.6Hz"/>
+        <binNames value="1722.7Hz"/>
+        <binNames value="1765.7Hz"/>
+        <binNames value="1808.8Hz"/>
+        <binNames value="1851.9Hz"/>
+        <binNames value="1894.9Hz"/>
+        <binNames value="1938.0Hz"/>
+        <binNames value="1981.1Hz"/>
+        <binNames value="2024.1Hz"/>
+        <binNames value="2067.2Hz"/>
+        <binNames value="2110.3Hz"/>
+        <binNames value="2153.3Hz"/>
+        <binNames value="2196.4Hz"/>
+        <binNames value="2239.5Hz"/>
+        <binNames value="2282.5Hz"/>
+        <binNames value="2325.6Hz"/>
+        <binNames value="2368.7Hz"/>
+        <binNames value="2411.7Hz"/>
+        <binNames value="2454.8Hz"/>
+        <binNames value="2497.9Hz"/>
+        <binNames value="2540.9Hz"/>
+        <binNames value="2584.0Hz"/>
+        <binNames value="2627.1Hz"/>
+        <binNames value="2670.1Hz"/>
+        <binNames value="2713.2Hz"/>
+        <binNames value="2756.2Hz"/>
+        <binNames value="2799.3Hz"/>
+        <binNames value="2842.4Hz"/>
+        <binNames value="2885.4Hz"/>
+        <binNames value="2928.5Hz"/>
+        <binNames value="2971.6Hz"/>
+        <binNames value="3014.6Hz"/>
+        <binNames value="3057.7Hz"/>
+        <binNames value="3100.8Hz"/>
+        <binNames value="3143.8Hz"/>
+        <binNames value="3186.9Hz"/>
+        <binNames value="3230.0Hz"/>
+        <binNames value="3273.0Hz"/>
+        <binNames value="3316.1Hz"/>
+        <binNames value="3359.2Hz"/>
+        <binNames value="3402.2Hz"/>
+        <binNames value="3445.3Hz"/>
+        <binNames value="3488.4Hz"/>
+        <binNames value="3531.4Hz"/>
+        <binNames value="3574.5Hz"/>
+        <binNames value="3617.6Hz"/>
+        <binNames value="3660.6Hz"/>
+        <binNames value="3703.7Hz"/>
+        <binNames value="3746.8Hz"/>
+        <binNames value="3789.8Hz"/>
+        <binNames value="3832.9Hz"/>
+        <binNames value="3876.0Hz"/>
+        <binNames value="3919.0Hz"/>
+        <binNames value="3962.1Hz"/>
+        <binNames value="4005.2Hz"/>
+        <binNames value="4048.2Hz"/>
+        <binNames value="4091.3Hz"/>
+        <binNames value="4134.4Hz"/>
+        <binNames value="4177.4Hz"/>
+        <binNames value="4220.5Hz"/>
+        <binNames value="4263.6Hz"/>
+        <binNames value="4306.6Hz"/>
+        <binNames value="4349.7Hz"/>
+        <binNames value="4392.8Hz"/>
+        <binNames value="4435.8Hz"/>
+        <binNames value="4478.9Hz"/>
+        <binNames value="4522.0Hz"/>
+        <binNames value="4565.0Hz"/>
+        <binNames value="4608.1Hz"/>
+        <binNames value="4651.2Hz"/>
+        <binNames value="4694.2Hz"/>
+        <binNames value="4737.3Hz"/>
+        <binNames value="4780.4Hz"/>
+        <binNames value="4823.4Hz"/>
+        <binNames value="4866.5Hz"/>
+        <binNames value="4909.6Hz"/>
+        <binNames value="4952.6Hz"/>
+        <binNames value="4995.7Hz"/>
+        <binNames value="5038.8Hz"/>
+        <binNames value="5081.8Hz"/>
+        <binNames value="5124.9Hz"/>
+        <binNames value="5168.0Hz"/>
+        <binNames value="5211.0Hz"/>
+        <binNames value="5254.1Hz"/>
+        <binNames value="5297.2Hz"/>
+        <binNames value="5340.2Hz"/>
+        <binNames value="5383.3Hz"/>
+        <binNames value="5426.4Hz"/>
+        <binNames value="5469.4Hz"/>
+        <binNames value="5512.5Hz"/>
+        <binNames value="5555.6Hz"/>
+        <binNames value="5598.6Hz"/>
+        <binNames value="5641.7Hz"/>
+        <binNames value="5684.8Hz"/>
+        <binNames value="5727.8Hz"/>
+        <binNames value="5770.9Hz"/>
+        <binNames value="5814.0Hz"/>
+        <binNames value="5857.0Hz"/>
+        <binNames value="5900.1Hz"/>
+        <binNames value="5943.2Hz"/>
+        <binNames value="5986.2Hz"/>
+        <binNames value="6029.3Hz"/>
+        <binNames value="6072.4Hz"/>
+        <binNames value="6115.4Hz"/>
+        <binNames value="6158.5Hz"/>
+        <binNames value="6201.6Hz"/>
+        <binNames value="6244.6Hz"/>
+        <binNames value="6287.7Hz"/>
+        <binNames value="6330.8Hz"/>
+        <binNames value="6373.8Hz"/>
+        <binNames value="6416.9Hz"/>
+        <binNames value="6460.0Hz"/>
+        <binNames value="6503.0Hz"/>
+        <binNames value="6546.1Hz"/>
+        <binNames value="6589.2Hz"/>
+        <binNames value="6632.2Hz"/>
+        <binNames value="6675.3Hz"/>
+        <binNames value="6718.4Hz"/>
+        <binNames value="6761.4Hz"/>
+        <binNames value="6804.5Hz"/>
+        <binNames value="6847.6Hz"/>
+        <binNames value="6890.6Hz"/>
+        <binNames value="6933.7Hz"/>
+        <binNames value="6976.8Hz"/>
+        <binNames value="7019.8Hz"/>
+        <binNames value="7062.9Hz"/>
+        <binNames value="7106.0Hz"/>
+        <binNames value="7149.0Hz"/>
+        <binNames value="7192.1Hz"/>
+        <binNames value="7235.2Hz"/>
+        <binNames value="7278.2Hz"/>
+        <binNames value="7321.3Hz"/>
+        <binNames value="7364.4Hz"/>
+        <binNames value="7407.4Hz"/>
+        <binNames value="7450.5Hz"/>
+        <binNames value="7493.6Hz"/>
+        <binNames value="7536.6Hz"/>
+        <binNames value="7579.7Hz"/>
+        <binNames value="7622.8Hz"/>
+        <binNames value="7665.8Hz"/>
+        <binNames value="7708.9Hz"/>
+        <binNames value="7752.0Hz"/>
+        <binNames value="7795.0Hz"/>
+        <binNames value="7838.1Hz"/>
+        <binNames value="7881.2Hz"/>
+        <binNames value="7924.2Hz"/>
+        <binNames value="7967.3Hz"/>
+        <binNames value="8010.4Hz"/>
+        <binNames value="8053.4Hz"/>
+        <binNames value="8096.5Hz"/>
+        <binNames value="8139.6Hz"/>
+        <binNames value="8182.6Hz"/>
+        <binNames value="8225.7Hz"/>
+        <binNames value="8268.8Hz"/>
+        <binNames value="8311.8Hz"/>
+        <binNames value="8354.9Hz"/>
+        <binNames value="8397.9Hz"/>
+        <binNames value="8441.0Hz"/>
+        <binNames value="8484.1Hz"/>
+        <binNames value="8527.1Hz"/>
+        <binNames value="8570.2Hz"/>
+        <binNames value="8613.3Hz"/>
+        <binNames value="8656.3Hz"/>
+        <binNames value="8699.4Hz"/>
+        <binNames value="8742.5Hz"/>
+        <binNames value="8785.5Hz"/>
+        <binNames value="8828.6Hz"/>
+        <binNames value="8871.7Hz"/>
+        <binNames value="8914.7Hz"/>
+        <binNames value="8957.8Hz"/>
+        <binNames value="9000.9Hz"/>
+        <binNames value="9043.9Hz"/>
+        <binNames value="9087.0Hz"/>
+        <binNames value="9130.1Hz"/>
+        <binNames value="9173.1Hz"/>
+        <binNames value="9216.2Hz"/>
+        <binNames value="9259.3Hz"/>
+        <binNames value="9302.3Hz"/>
+        <binNames value="9345.4Hz"/>
+        <binNames value="9388.5Hz"/>
+        <binNames value="9431.5Hz"/>
+        <binNames value="9474.6Hz"/>
+        <binNames value="9517.7Hz"/>
+        <binNames value="9560.7Hz"/>
+        <binNames value="9603.8Hz"/>
+        <binNames value="9646.9Hz"/>
+        <binNames value="9689.9Hz"/>
+        <binNames value="9733.0Hz"/>
+        <binNames value="9776.1Hz"/>
+        <binNames value="9819.1Hz"/>
+        <binNames value="9862.2Hz"/>
+        <binNames value="9905.3Hz"/>
+        <binNames value="9948.3Hz"/>
+        <binNames value="9991.4Hz"/>
+        <binNames value="10034.5Hz"/>
+        <binNames value="10077.5Hz"/>
+        <binNames value="10120.6Hz"/>
+        <binNames value="10163.7Hz"/>
+        <binNames value="10206.7Hz"/>
+        <binNames value="10249.8Hz"/>
+        <binNames value="10292.9Hz"/>
+        <binNames value="10335.9Hz"/>
+        <binNames value="10379.0Hz"/>
+        <binNames value="10422.1Hz"/>
+        <binNames value="10465.1Hz"/>
+        <binNames value="10508.2Hz"/>
+        <binNames value="10551.3Hz"/>
+        <binNames value="10594.3Hz"/>
+        <binNames value="10637.4Hz"/>
+        <binNames value="10680.5Hz"/>
+        <binNames value="10723.5Hz"/>
+        <binNames value="10766.6Hz"/>
+        <binNames value="10809.7Hz"/>
+        <binNames value="10852.7Hz"/>
+        <binNames value="10895.8Hz"/>
+        <binNames value="10938.9Hz"/>
+        <binNames value="10981.9Hz"/>
+        <binNames value="11025.0Hz"/>
+        <binNames value="11068.1Hz"/>
+        <binNames value="11111.1Hz"/>
+        <binNames value="11154.2Hz"/>
+        <binNames value="11197.3Hz"/>
+        <binNames value="11240.3Hz"/>
+        <binNames value="11283.4Hz"/>
+        <binNames value="11326.5Hz"/>
+        <binNames value="11369.5Hz"/>
+        <binNames value="11412.6Hz"/>
+        <binNames value="11455.7Hz"/>
+        <binNames value="11498.7Hz"/>
+        <binNames value="11541.8Hz"/>
+        <binNames value="11584.9Hz"/>
+        <binNames value="11627.9Hz"/>
+        <binNames value="11671.0Hz"/>
+        <binNames value="11714.1Hz"/>
+        <binNames value="11757.1Hz"/>
+        <binNames value="11800.2Hz"/>
+        <binNames value="11843.3Hz"/>
+        <binNames value="11886.3Hz"/>
+        <binNames value="11929.4Hz"/>
+        <binNames value="11972.5Hz"/>
+        <binNames value="12015.5Hz"/>
+        <binNames value="12058.6Hz"/>
+        <binNames value="12101.7Hz"/>
+        <binNames value="12144.7Hz"/>
+        <binNames value="12187.8Hz"/>
+        <binNames value="12230.9Hz"/>
+        <binNames value="12273.9Hz"/>
+        <binNames value="12317.0Hz"/>
+        <binNames value="12360.1Hz"/>
+        <binNames value="12403.1Hz"/>
+        <binNames value="12446.2Hz"/>
+        <binNames value="12489.3Hz"/>
+        <binNames value="12532.3Hz"/>
+        <binNames value="12575.4Hz"/>
+        <binNames value="12618.5Hz"/>
+        <binNames value="12661.5Hz"/>
+        <binNames value="12704.6Hz"/>
+        <binNames value="12747.7Hz"/>
+        <binNames value="12790.7Hz"/>
+        <binNames value="12833.8Hz"/>
+        <binNames value="12876.9Hz"/>
+        <binNames value="12919.9Hz"/>
+        <binNames value="12963.0Hz"/>
+        <binNames value="13006.1Hz"/>
+        <binNames value="13049.1Hz"/>
+        <binNames value="13092.2Hz"/>
+        <binNames value="13135.3Hz"/>
+        <binNames value="13178.3Hz"/>
+        <binNames value="13221.4Hz"/>
+        <binNames value="13264.5Hz"/>
+        <binNames value="13307.5Hz"/>
+        <binNames value="13350.6Hz"/>
+        <binNames value="13393.7Hz"/>
+        <binNames value="13436.7Hz"/>
+        <binNames value="13479.8Hz"/>
+        <binNames value="13522.9Hz"/>
+        <binNames value="13565.9Hz"/>
+        <binNames value="13609.0Hz"/>
+        <binNames value="13652.1Hz"/>
+        <binNames value="13695.1Hz"/>
+        <binNames value="13738.2Hz"/>
+        <binNames value="13781.2Hz"/>
+        <binNames value="13824.3Hz"/>
+        <binNames value="13867.4Hz"/>
+        <binNames value="13910.4Hz"/>
+        <binNames value="13953.5Hz"/>
+        <binNames value="13996.6Hz"/>
+        <binNames value="14039.6Hz"/>
+        <binNames value="14082.7Hz"/>
+        <binNames value="14125.8Hz"/>
+        <binNames value="14168.8Hz"/>
+        <binNames value="14211.9Hz"/>
+        <binNames value="14255.0Hz"/>
+        <binNames value="14298.0Hz"/>
+        <binNames value="14341.1Hz"/>
+        <binNames value="14384.2Hz"/>
+        <binNames value="14427.2Hz"/>
+        <binNames value="14470.3Hz"/>
+        <binNames value="14513.4Hz"/>
+        <binNames value="14556.4Hz"/>
+        <binNames value="14599.5Hz"/>
+        <binNames value="14642.6Hz"/>
+        <binNames value="14685.6Hz"/>
+        <binNames value="14728.7Hz"/>
+        <binNames value="14771.8Hz"/>
+        <binNames value="14814.8Hz"/>
+        <binNames value="14857.9Hz"/>
+        <binNames value="14901.0Hz"/>
+        <binNames value="14944.0Hz"/>
+        <binNames value="14987.1Hz"/>
+        <binNames value="15030.2Hz"/>
+        <binNames value="15073.2Hz"/>
+        <binNames value="15116.3Hz"/>
+        <binNames value="15159.4Hz"/>
+        <binNames value="15202.4Hz"/>
+        <binNames value="15245.5Hz"/>
+        <binNames value="15288.6Hz"/>
+        <binNames value="15331.6Hz"/>
+        <binNames value="15374.7Hz"/>
+        <binNames value="15417.8Hz"/>
+        <binNames value="15460.8Hz"/>
+        <binNames value="15503.9Hz"/>
+        <binNames value="15547.0Hz"/>
+        <binNames value="15590.0Hz"/>
+        <binNames value="15633.1Hz"/>
+        <binNames value="15676.2Hz"/>
+        <binNames value="15719.2Hz"/>
+        <binNames value="15762.3Hz"/>
+        <binNames value="15805.4Hz"/>
+        <binNames value="15848.4Hz"/>
+        <binNames value="15891.5Hz"/>
+        <binNames value="15934.6Hz"/>
+        <binNames value="15977.6Hz"/>
+        <binNames value="16020.7Hz"/>
+        <binNames value="16063.8Hz"/>
+        <binNames value="16106.8Hz"/>
+        <binNames value="16149.9Hz"/>
+        <binNames value="16193.0Hz"/>
+        <binNames value="16236.0Hz"/>
+        <binNames value="16279.1Hz"/>
+        <binNames value="16322.2Hz"/>
+        <binNames value="16365.2Hz"/>
+        <binNames value="16408.3Hz"/>
+        <binNames value="16451.4Hz"/>
+        <binNames value="16494.4Hz"/>
+        <binNames value="16537.5Hz"/>
+        <binNames value="16580.6Hz"/>
+        <binNames value="16623.6Hz"/>
+        <binNames value="16666.7Hz"/>
+        <binNames value="16709.8Hz"/>
+        <binNames value="16752.8Hz"/>
+        <binNames value="16795.9Hz"/>
+        <binNames value="16839.0Hz"/>
+        <binNames value="16882.0Hz"/>
+        <binNames value="16925.1Hz"/>
+        <binNames value="16968.2Hz"/>
+        <binNames value="17011.2Hz"/>
+        <binNames value="17054.3Hz"/>
+        <binNames value="17097.4Hz"/>
+        <binNames value="17140.4Hz"/>
+        <binNames value="17183.5Hz"/>
+        <binNames value="17226.6Hz"/>
+        <binNames value="17269.6Hz"/>
+        <binNames value="17312.7Hz"/>
+        <binNames value="17355.8Hz"/>
+        <binNames value="17398.8Hz"/>
+        <binNames value="17441.9Hz"/>
+        <binNames value="17485.0Hz"/>
+        <binNames value="17528.0Hz"/>
+        <binNames value="17571.1Hz"/>
+        <binNames value="17614.2Hz"/>
+        <binNames value="17657.2Hz"/>
+        <binNames value="17700.3Hz"/>
+        <binNames value="17743.4Hz"/>
+        <binNames value="17786.4Hz"/>
+        <binNames value="17829.5Hz"/>
+        <binNames value="17872.6Hz"/>
+        <binNames value="17915.6Hz"/>
+        <binNames value="17958.7Hz"/>
+        <binNames value="18001.8Hz"/>
+        <binNames value="18044.8Hz"/>
+        <binNames value="18087.9Hz"/>
+        <binNames value="18131.0Hz"/>
+        <binNames value="18174.0Hz"/>
+        <binNames value="18217.1Hz"/>
+        <binNames value="18260.2Hz"/>
+        <binNames value="18303.2Hz"/>
+        <binNames value="18346.3Hz"/>
+        <binNames value="18389.4Hz"/>
+        <binNames value="18432.4Hz"/>
+        <binNames value="18475.5Hz"/>
+        <binNames value="18518.6Hz"/>
+        <binNames value="18561.6Hz"/>
+        <binNames value="18604.7Hz"/>
+        <binNames value="18647.8Hz"/>
+        <binNames value="18690.8Hz"/>
+        <binNames value="18733.9Hz"/>
+        <binNames value="18777.0Hz"/>
+        <binNames value="18820.0Hz"/>
+        <binNames value="18863.1Hz"/>
+        <binNames value="18906.2Hz"/>
+        <binNames value="18949.2Hz"/>
+        <binNames value="18992.3Hz"/>
+        <binNames value="19035.4Hz"/>
+        <binNames value="19078.4Hz"/>
+        <binNames value="19121.5Hz"/>
+        <binNames value="19164.6Hz"/>
+        <binNames value="19207.6Hz"/>
+        <binNames value="19250.7Hz"/>
+        <binNames value="19293.8Hz"/>
+        <binNames value="19336.8Hz"/>
+        <binNames value="19379.9Hz"/>
+        <binNames value="19422.9Hz"/>
+        <binNames value="19466.0Hz"/>
+        <binNames value="19509.1Hz"/>
+        <binNames value="19552.1Hz"/>
+        <binNames value="19595.2Hz"/>
+        <binNames value="19638.3Hz"/>
+        <binNames value="19681.3Hz"/>
+        <binNames value="19724.4Hz"/>
+        <binNames value="19767.5Hz"/>
+        <binNames value="19810.5Hz"/>
+        <binNames value="19853.6Hz"/>
+        <binNames value="19896.7Hz"/>
+        <binNames value="19939.7Hz"/>
+        <binNames value="19982.8Hz"/>
+        <binNames value="20025.9Hz"/>
+        <binNames value="20068.9Hz"/>
+        <binNames value="20112.0Hz"/>
+        <binNames value="20155.1Hz"/>
+        <binNames value="20198.1Hz"/>
+        <binNames value="20241.2Hz"/>
+        <binNames value="20284.3Hz"/>
+        <binNames value="20327.3Hz"/>
+        <binNames value="20370.4Hz"/>
+        <binNames value="20413.5Hz"/>
+        <binNames value="20456.5Hz"/>
+        <binNames value="20499.6Hz"/>
+        <binNames value="20542.7Hz"/>
+        <binNames value="20585.7Hz"/>
+        <binNames value="20628.8Hz"/>
+        <binNames value="20671.9Hz"/>
+        <binNames value="20714.9Hz"/>
+        <binNames value="20758.0Hz"/>
+        <binNames value="20801.1Hz"/>
+        <binNames value="20844.1Hz"/>
+        <binNames value="20887.2Hz"/>
+        <binNames value="20930.3Hz"/>
+        <binNames value="20973.3Hz"/>
+        <binNames value="21016.4Hz"/>
+        <binNames value="21059.5Hz"/>
+        <binNames value="21102.5Hz"/>
+        <binNames value="21145.6Hz"/>
+        <binNames value="21188.7Hz"/>
+        <binNames value="21231.7Hz"/>
+        <binNames value="21274.8Hz"/>
+        <binNames value="21317.9Hz"/>
+        <binNames value="21360.9Hz"/>
+        <binNames value="21404.0Hz"/>
+        <binNames value="21447.1Hz"/>
+        <binNames value="21490.1Hz"/>
+        <binNames value="21533.2Hz"/>
+        <binNames value="21576.3Hz"/>
+        <binNames value="21619.3Hz"/>
+        <binNames value="21662.4Hz"/>
+        <binNames value="21705.5Hz"/>
+        <binNames value="21748.5Hz"/>
+        <binNames value="21791.6Hz"/>
+        <binNames value="21834.7Hz"/>
+        <binNames value="21877.7Hz"/>
+        <binNames value="21920.8Hz"/>
+        <binNames value="21963.9Hz"/>
+        <binNames value="22006.9Hz"/>
+        <binNames value="22050.0Hz"/>
+      </output>
+    </description>
+    <key identifier="partiels-vamp-plugins:partielsspectrogram" feature="energies"/>
+    <state blockSize="1024" stepSize="512" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="66000000"
+               text="ff000000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="-120.0" globalRange_end="6.0"
+               minimumLength="1.192092895507812e-7" visibleRange_start="-120.0"
+               visibleRange_end="6.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="22050.0"
+             minimumLength="1.192092895507812e-7" visibleRange_start="0.0"
+             visibleRange_end="22050.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="95121f8b17dc47deb4535513aa6090bc"
+          name="CLAP Prompt - Buildings" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="CLAP Prompt" inputDomain="0" maker="Ircam" version="1"
+                 category="Zero Shot Audio Tagging" details="Zero-shot audio tagging using the CLAP and CLAP2 audio-text models of LAION. The plugin compares the embedding of each audio window with the embeddings of the text prompts provided as precomputed markers, one marker per prompt (for example generated by the tools or annotations of the host), and generates over time the similarity scores of all the prompts as well as tags carrying the most similar prompt with its score (that can be used to filter the tags in the host). The prompts can be organized hierarchically with slashes (for example, Animal/Bird/Owl): a level is represented by the average embedding of its text and of the texts of its sublevels, and the tag is the most similar prompt among all the levels (a level is selected when its sublevels do not match the audio better). The plugin also generates the probabilities of the prompts, computed with the softmax of the similarity scores among the prompts of the same level, scaled by the temperature of the model (the probability of a sublevel is the probability of its level multiplied by its probability among the sublevels). The models are trained with English captions, hence the prompts must be written in English (the audio can contain speech in any language)."
+                 copyright="CLAP and CLAP2 models by LAION. CLAP.cpp by Gorse. Clap Vamp Plugin by Pierre Guillot. Copyright 2026 Ircam. MIT License.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3">
+        <parameters key="hopsize" value="1.0"/>
+        <parameters key="model" value="0.0"/>
+        <parameters key="windowsize" value="10.0"/>
+      </defaultState>
+      <parameters>
+        <value identifier="model" name="Model" description="The model used to generate the embeddings (the embedded models are listed first, followed by the models of the directory defined by the CLAPMODELSPATH environment variable)"
+               unit="" minValue="0.0" maxValue="5.0" defaultValue="0.0" isQuantized="1"
+               quantizeStep="1.0" isAlias="0">
+          <valueNames value="1. CLAP2 Small (F16)"/>
+          <valueNames value="2. CLAP2 XXS (F16)"/>
+          <valueNames value="3. CLAP General (Q8_0)"/>
+          <valueNames value="4. CLAP General (Q4_K_M)"/>
+          <valueNames value="5. CLAP Music and Speech (Q8_0)"/>
+          <valueNames value="6. CLAP Music and Speech (Q4_K_M)"/>
+        </value>
+      </parameters>
+      <parameters>
+        <value identifier="windowsize" name="Window Size" description="The duration of the analysis windows, in seconds"
+               unit="s" minValue="1.0" maxValue="10.0" defaultValue="10.0" isQuantized="1"
+               quantizeStep="0.5" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="hopsize" name="Hop Size" description="The duration between two analysis windows, in seconds (the computation time is proportional to the number of windows)"
+               unit="s" minValue="0.1000000014901161" maxValue="10.0" defaultValue="1.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <output identifier="tag" name="Best Class" description="The most similar prompt of the audio window among all the levels of the hierarchical prompts, with its similarity score"
+              unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+              minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="2" sampleRate="0.0" hasDuration="1"/>
+      <extraOutputs>
+        <value identifier="similarity" name="Similarity" description="The similarity score of the tagged prompt"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="0.5" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <extraOutputs>
+        <value identifier="probability" name="Probability" description="The probability of the tagged prompt"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="1.0" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <inputs>
+        <value identifier="prompt" name="Prompt" description="The text prompts to compare with the audio, one marker per prompt (e.g. generated by the tools or the annotations of the host), the levels of the hierarchical prompts being separated by slashes (e.g. Animal/A bird sings./An owl hoots.)"
+               unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+               minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+               sampleType="2" sampleRate="0.0" hasDuration="0"/>
+      </inputs>
+    </description>
+    <key identifier="ircamclap:clapprompt" feature="tag"/>
+    <inputs key="prompt" value="088d33ab8a9249e2a0777236de59ac7b"/>
+    <state blockSize="1024" stepSize="0" windowType="3">
+      <parameters key="hopsize" value="0.5"/>
+      <parameters key="model" value="7.0"/>
+      <parameters key="threshold" value="0.0"/>
+      <parameters key="windowsize" value="2.0"/>
+    </state>
+    <graphicsSettings font="Nunito Sans; 16.0 Regular" lineWidth="1.0" markerStyle="1">
+      <colours map="7" background="0" foreground="ff0084ff" duration="ff0084ff"
+               text="ff0084ff" shadow="0"/>
+      <labelLayout position="32.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <extraThresholds>
+      <value value="0.2169769555330276"/>
+    </extraThresholds>
+    <extraThresholds>
+      <value value="0.0"/>
+    </extraThresholds>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="fe755441f35a43d696560dc8ff1dedc0"
+          name="CLAP Prompt - People" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="CLAP Prompt" inputDomain="0" maker="Ircam" version="1"
+                 category="Zero Shot Audio Tagging" details="Zero-shot audio tagging using the CLAP and CLAP2 audio-text models of LAION. The plugin compares the embedding of each audio window with the embeddings of the text prompts provided as precomputed markers, one marker per prompt (for example generated by the tools or annotations of the host), and generates over time the similarity scores of all the prompts as well as tags carrying the most similar prompt with its score (that can be used to filter the tags in the host). The prompts can be organized hierarchically with slashes (for example, Animal/Bird/Owl): a level is represented by the average embedding of its text and of the texts of its sublevels, and the tag is the most similar prompt among all the levels (a level is selected when its sublevels do not match the audio better). The plugin also generates the probabilities of the prompts, computed with the softmax of the similarity scores among the prompts of the same level, scaled by the temperature of the model (the probability of a sublevel is the probability of its level multiplied by its probability among the sublevels). The models are trained with English captions, hence the prompts must be written in English (the audio can contain speech in any language)."
+                 copyright="CLAP and CLAP2 models by LAION. CLAP.cpp by Gorse. Clap Vamp Plugin by Pierre Guillot. Copyright 2026 Ircam. MIT License.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3">
+        <parameters key="hopsize" value="1.0"/>
+        <parameters key="model" value="0.0"/>
+        <parameters key="windowsize" value="10.0"/>
+      </defaultState>
+      <parameters>
+        <value identifier="model" name="Model" description="The model used to generate the embeddings (the embedded models are listed first, followed by the models of the directory defined by the CLAPMODELSPATH environment variable)"
+               unit="" minValue="0.0" maxValue="5.0" defaultValue="0.0" isQuantized="1"
+               quantizeStep="1.0" isAlias="0">
+          <valueNames value="1. CLAP2 Small (F16)"/>
+          <valueNames value="2. CLAP2 XXS (F16)"/>
+          <valueNames value="3. CLAP General (Q8_0)"/>
+          <valueNames value="4. CLAP General (Q4_K_M)"/>
+          <valueNames value="5. CLAP Music and Speech (Q8_0)"/>
+          <valueNames value="6. CLAP Music and Speech (Q4_K_M)"/>
+        </value>
+      </parameters>
+      <parameters>
+        <value identifier="windowsize" name="Window Size" description="The duration of the analysis windows, in seconds"
+               unit="s" minValue="1.0" maxValue="10.0" defaultValue="10.0" isQuantized="1"
+               quantizeStep="0.5" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="hopsize" name="Hop Size" description="The duration between two analysis windows, in seconds (the computation time is proportional to the number of windows)"
+               unit="s" minValue="0.1000000014901161" maxValue="10.0" defaultValue="1.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <output identifier="tag" name="Best Class" description="The most similar prompt of the audio window among all the levels of the hierarchical prompts, with its similarity score"
+              unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+              minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="2" sampleRate="0.0" hasDuration="1"/>
+      <extraOutputs>
+        <value identifier="similarity" name="Similarity" description="The similarity score of the tagged prompt"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="0.5" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <extraOutputs>
+        <value identifier="probability" name="Probability" description="The probability of the tagged prompt"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="1.0" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <inputs>
+        <value identifier="prompt" name="Prompt" description="The text prompts to compare with the audio, one marker per prompt (e.g. generated by the tools or the annotations of the host), the levels of the hierarchical prompts being separated by slashes (e.g. Animal/A bird sings./An owl hoots.)"
+               unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+               minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+               sampleType="2" sampleRate="0.0" hasDuration="0"/>
+      </inputs>
+    </description>
+    <key identifier="ircamclap:clapprompt" feature="tag"/>
+    <inputs key="prompt" value="de4f64e28ea541dd888aad83eb500ba4"/>
+    <state blockSize="1024" stepSize="0" windowType="3">
+      <parameters key="hopsize" value="0.5"/>
+      <parameters key="model" value="7.0"/>
+      <parameters key="threshold" value="0.0"/>
+      <parameters key="windowsize" value="2.0"/>
+    </state>
+    <graphicsSettings font="Nunito Sans; 16.0 Regular" lineWidth="1.0" markerStyle="1">
+      <colours map="7" background="0" foreground="ff00ff22" duration="ff00ff22"
+               text="ff00ff22" shadow="0"/>
+      <labelLayout position="64.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <extraThresholds>
+      <value value="0.2169769555330276"/>
+    </extraThresholds>
+    <extraThresholds>
+      <value value="0.0"/>
+    </extraThresholds>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="37abd7eb5f98430289fd678046081bc4"
+          name="CLAP Prompt - Vehicles" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="23" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="CLAP Prompt" inputDomain="0" maker="Ircam" version="1"
+                 category="Zero Shot Audio Tagging" details="Zero-shot audio tagging using the CLAP and CLAP2 audio-text models of LAION. The plugin compares the embedding of each audio window with the embeddings of the text prompts provided as precomputed markers, one marker per prompt (for example generated by the tools or annotations of the host), and generates over time the similarity scores of all the prompts as well as tags carrying the most similar prompt with its score (that can be used to filter the tags in the host). The prompts can be organized hierarchically with slashes (for example, Animal/Bird/Owl): a level is represented by the average embedding of its text and of the texts of its sublevels, and the tag is the most similar prompt among all the levels (a level is selected when its sublevels do not match the audio better). The plugin also generates the probabilities of the prompts, computed with the softmax of the similarity scores among the prompts of the same level, scaled by the temperature of the model (the probability of a sublevel is the probability of its level multiplied by its probability among the sublevels). The models are trained with English captions, hence the prompts must be written in English (the audio can contain speech in any language)."
+                 copyright="CLAP and CLAP2 models by LAION. CLAP.cpp by Gorse. Clap Vamp Plugin by Pierre Guillot. Copyright 2026 Ircam. MIT License.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3">
+        <parameters key="hopsize" value="1.0"/>
+        <parameters key="model" value="0.0"/>
+        <parameters key="windowsize" value="10.0"/>
+      </defaultState>
+      <parameters>
+        <value identifier="model" name="Model" description="The model used to generate the embeddings (the embedded models are listed first, followed by the models of the directory defined by the CLAPMODELSPATH environment variable)"
+               unit="" minValue="0.0" maxValue="5.0" defaultValue="0.0" isQuantized="1"
+               quantizeStep="1.0" isAlias="0">
+          <valueNames value="1. CLAP2 Small (F16)"/>
+          <valueNames value="2. CLAP2 XXS (F16)"/>
+          <valueNames value="3. CLAP General (Q8_0)"/>
+          <valueNames value="4. CLAP General (Q4_K_M)"/>
+          <valueNames value="5. CLAP Music and Speech (Q8_0)"/>
+          <valueNames value="6. CLAP Music and Speech (Q4_K_M)"/>
+        </value>
+      </parameters>
+      <parameters>
+        <value identifier="windowsize" name="Window Size" description="The duration of the analysis windows, in seconds"
+               unit="s" minValue="1.0" maxValue="10.0" defaultValue="10.0" isQuantized="1"
+               quantizeStep="0.5" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="hopsize" name="Hop Size" description="The duration between two analysis windows, in seconds (the computation time is proportional to the number of windows)"
+               unit="s" minValue="0.1000000014901161" maxValue="10.0" defaultValue="1.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <output identifier="tag" name="Best Class" description="The most similar prompt of the audio window among all the levels of the hierarchical prompts, with its similarity score"
+              unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+              minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="2" sampleRate="0.0" hasDuration="1"/>
+      <extraOutputs>
+        <value identifier="similarity" name="Similarity" description="The similarity score of the tagged prompt"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="0.5" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <extraOutputs>
+        <value identifier="probability" name="Probability" description="The probability of the tagged prompt"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="1.0" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <inputs>
+        <value identifier="prompt" name="Prompt" description="The text prompts to compare with the audio, one marker per prompt (e.g. generated by the tools or the annotations of the host), the levels of the hierarchical prompts being separated by slashes (e.g. Animal/A bird sings./An owl hoots.)"
+               unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+               minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+               sampleType="2" sampleRate="0.0" hasDuration="0"/>
+      </inputs>
+    </description>
+    <key identifier="ircamclap:clapprompt" feature="tag"/>
+    <inputs key="prompt" value="de7e1f453b3b4270b63ec4b7b0be41bc"/>
+    <state blockSize="1024" stepSize="0" windowType="3">
+      <parameters key="hopsize" value="0.5"/>
+      <parameters key="model" value="7.0"/>
+      <parameters key="threshold" value="0.0"/>
+      <parameters key="windowsize" value="2.0"/>
+    </state>
+    <graphicsSettings font="Nunito Sans; 16.0 Regular" lineWidth="1.0" markerStyle="1">
+      <colours map="7" background="0" foreground="ffaaff00" duration="ffaaff00"
+               text="ffaaff00" shadow="0"/>
+      <labelLayout position="96.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <extraThresholds>
+      <value value="0.2169769555330276"/>
+    </extraThresholds>
+    <extraThresholds>
+      <value value="0.0"/>
+    </extraThresholds>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="530efd68b4514cf4993b2185b5112807"
+          name="CLAP Novelty - Boundary" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="38" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="CLAP Novelty" inputDomain="0" maker="Ircam" version="1"
+                 category="Segmentation" details="Detection of the changes in the audio stream using the audio embeddings of the CLAP and CLAP2 models of LAION, without text prompt nor reference. At each boundary between two analysis windows, the plugin compares the average embedding of the windows entirely before the boundary with the average embedding of the windows entirely after the boundary, over the duration of the Context parameter. The windows shortened at the beginning and at the end of the audio stream are ignored, hence the novelty is zero (no change is considered) during approximately the window size at the beginning and at the end of the audio stream. The novelty is the cosine distance between the two embeddings, between 0 (the content does not change) and 2 (in practice, the audio embeddings remain similar and the novelty rarely exceeds 0.5). The boundaries are the peaks of the novelty, separated by at least the context duration, with the novelty as value (the boundaries can be filtered by the host according to this value). The features are generated at the end of the analysis."
+                 copyright="CLAP and CLAP2 models by LAION. CLAP.cpp by Gorse. Clap Vamp Plugin by Pierre Guillot. Copyright 2026 Ircam. MIT License.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3">
+        <parameters key="context" value="5.0"/>
+        <parameters key="hopsize" value="1.0"/>
+        <parameters key="model" value="0.0"/>
+        <parameters key="windowsize" value="5.0"/>
+      </defaultState>
+      <parameters>
+        <value identifier="model" name="Model" description="The model used to generate the embeddings (the embedded models are listed first, followed by the models of the directory defined by the CLAPMODELSPATH environment variable)"
+               unit="" minValue="0.0" maxValue="5.0" defaultValue="0.0" isQuantized="1"
+               quantizeStep="1.0" isAlias="0">
+          <valueNames value="1. CLAP2 Small (F16)"/>
+          <valueNames value="2. CLAP2 XXS (F16)"/>
+          <valueNames value="3. CLAP General (Q8_0)"/>
+          <valueNames value="4. CLAP General (Q4_K_M)"/>
+          <valueNames value="5. CLAP Music and Speech (Q8_0)"/>
+          <valueNames value="6. CLAP Music and Speech (Q4_K_M)"/>
+        </value>
+      </parameters>
+      <parameters>
+        <value identifier="windowsize" name="Window Size" description="The duration of the analysis windows, in seconds"
+               unit="s" minValue="1.0" maxValue="10.0" defaultValue="5.0" isQuantized="1"
+               quantizeStep="0.5" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="hopsize" name="Hop Size" description="The duration between two analysis windows, in seconds (the computation time is proportional to the number of windows)"
+               unit="s" minValue="0.1000000014901161" maxValue="10.0" defaultValue="1.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="context" name="Context" description="The duration compared before and after each boundary and the minimum duration between two detected boundaries, in seconds"
+               unit="s" minValue="0.1000000014901161" maxValue="60.0" defaultValue="5.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <output identifier="boundary" name="Boundary" description="The boundaries where the content of the audio changes (the peaks of the novelty)"
+              unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+              minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="2" sampleRate="0.0" hasDuration="0"/>
+      <extraOutputs>
+        <value identifier="novelty" name="Novelty" description="The novelty of the boundary"
+               unit="" hasKnownExtents="1" minValue="0.0" maxValue="0.6781497597694397"
+               isQuantized="0" quantizeStep="0.0"/>
+      </extraOutputs>
+    </description>
+    <key identifier="ircamclap:clapnovelty" feature="boundary"/>
+    <state blockSize="1024" stepSize="0" windowType="3">
+      <parameters key="context" value="1.0"/>
+      <parameters key="hopsize" value="0.2000000029802322"/>
+      <parameters key="model" value="7.0"/>
+      <parameters key="windowsize" value="1.0"/>
+    </state>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="45ff0000"
+               text="ffff0000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="a459296f46954b799a829b517300c9d5"
+          name="Spectrogram - Energy" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="120" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="1" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="Spectrogram" inputDomain="1" maker="Factory" version="1"
+                 category="" details="Display the spectrogram of the audio." copyright="Partiels factory plugin.">
+      <defaultState blockSize="1024" stepSize="512" windowType="3"/>
+      <output identifier="energies" name="Energy" description="Amplitude of the frequency bins in decibels relative to full scale (a full-scale sinusoid is at 0 dB)"
+              unit="dB" hasFixedBinCount="1" binCount="513" hasKnownExtents="1"
+              minValue="-120.0" maxValue="6.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="0" sampleRate="0.0" hasDuration="0">
+        <binNames value="0.0Hz"/>
+        <binNames value="43.1Hz"/>
+        <binNames value="86.1Hz"/>
+        <binNames value="129.2Hz"/>
+        <binNames value="172.3Hz"/>
+        <binNames value="215.3Hz"/>
+        <binNames value="258.4Hz"/>
+        <binNames value="301.5Hz"/>
+        <binNames value="344.5Hz"/>
+        <binNames value="387.6Hz"/>
+        <binNames value="430.7Hz"/>
+        <binNames value="473.7Hz"/>
+        <binNames value="516.8Hz"/>
+        <binNames value="559.9Hz"/>
+        <binNames value="602.9Hz"/>
+        <binNames value="646.0Hz"/>
+        <binNames value="689.1Hz"/>
+        <binNames value="732.1Hz"/>
+        <binNames value="775.2Hz"/>
+        <binNames value="818.3Hz"/>
+        <binNames value="861.3Hz"/>
+        <binNames value="904.4Hz"/>
+        <binNames value="947.5Hz"/>
+        <binNames value="990.5Hz"/>
+        <binNames value="1033.6Hz"/>
+        <binNames value="1076.7Hz"/>
+        <binNames value="1119.7Hz"/>
+        <binNames value="1162.8Hz"/>
+        <binNames value="1205.9Hz"/>
+        <binNames value="1248.9Hz"/>
+        <binNames value="1292.0Hz"/>
+        <binNames value="1335.1Hz"/>
+        <binNames value="1378.1Hz"/>
+        <binNames value="1421.2Hz"/>
+        <binNames value="1464.3Hz"/>
+        <binNames value="1507.3Hz"/>
+        <binNames value="1550.4Hz"/>
+        <binNames value="1593.5Hz"/>
+        <binNames value="1636.5Hz"/>
+        <binNames value="1679.6Hz"/>
+        <binNames value="1722.7Hz"/>
+        <binNames value="1765.7Hz"/>
+        <binNames value="1808.8Hz"/>
+        <binNames value="1851.9Hz"/>
+        <binNames value="1894.9Hz"/>
+        <binNames value="1938.0Hz"/>
+        <binNames value="1981.1Hz"/>
+        <binNames value="2024.1Hz"/>
+        <binNames value="2067.2Hz"/>
+        <binNames value="2110.3Hz"/>
+        <binNames value="2153.3Hz"/>
+        <binNames value="2196.4Hz"/>
+        <binNames value="2239.5Hz"/>
+        <binNames value="2282.5Hz"/>
+        <binNames value="2325.6Hz"/>
+        <binNames value="2368.7Hz"/>
+        <binNames value="2411.7Hz"/>
+        <binNames value="2454.8Hz"/>
+        <binNames value="2497.9Hz"/>
+        <binNames value="2540.9Hz"/>
+        <binNames value="2584.0Hz"/>
+        <binNames value="2627.1Hz"/>
+        <binNames value="2670.1Hz"/>
+        <binNames value="2713.2Hz"/>
+        <binNames value="2756.2Hz"/>
+        <binNames value="2799.3Hz"/>
+        <binNames value="2842.4Hz"/>
+        <binNames value="2885.4Hz"/>
+        <binNames value="2928.5Hz"/>
+        <binNames value="2971.6Hz"/>
+        <binNames value="3014.6Hz"/>
+        <binNames value="3057.7Hz"/>
+        <binNames value="3100.8Hz"/>
+        <binNames value="3143.8Hz"/>
+        <binNames value="3186.9Hz"/>
+        <binNames value="3230.0Hz"/>
+        <binNames value="3273.0Hz"/>
+        <binNames value="3316.1Hz"/>
+        <binNames value="3359.2Hz"/>
+        <binNames value="3402.2Hz"/>
+        <binNames value="3445.3Hz"/>
+        <binNames value="3488.4Hz"/>
+        <binNames value="3531.4Hz"/>
+        <binNames value="3574.5Hz"/>
+        <binNames value="3617.6Hz"/>
+        <binNames value="3660.6Hz"/>
+        <binNames value="3703.7Hz"/>
+        <binNames value="3746.8Hz"/>
+        <binNames value="3789.8Hz"/>
+        <binNames value="3832.9Hz"/>
+        <binNames value="3876.0Hz"/>
+        <binNames value="3919.0Hz"/>
+        <binNames value="3962.1Hz"/>
+        <binNames value="4005.2Hz"/>
+        <binNames value="4048.2Hz"/>
+        <binNames value="4091.3Hz"/>
+        <binNames value="4134.4Hz"/>
+        <binNames value="4177.4Hz"/>
+        <binNames value="4220.5Hz"/>
+        <binNames value="4263.6Hz"/>
+        <binNames value="4306.6Hz"/>
+        <binNames value="4349.7Hz"/>
+        <binNames value="4392.8Hz"/>
+        <binNames value="4435.8Hz"/>
+        <binNames value="4478.9Hz"/>
+        <binNames value="4522.0Hz"/>
+        <binNames value="4565.0Hz"/>
+        <binNames value="4608.1Hz"/>
+        <binNames value="4651.2Hz"/>
+        <binNames value="4694.2Hz"/>
+        <binNames value="4737.3Hz"/>
+        <binNames value="4780.4Hz"/>
+        <binNames value="4823.4Hz"/>
+        <binNames value="4866.5Hz"/>
+        <binNames value="4909.6Hz"/>
+        <binNames value="4952.6Hz"/>
+        <binNames value="4995.7Hz"/>
+        <binNames value="5038.8Hz"/>
+        <binNames value="5081.8Hz"/>
+        <binNames value="5124.9Hz"/>
+        <binNames value="5168.0Hz"/>
+        <binNames value="5211.0Hz"/>
+        <binNames value="5254.1Hz"/>
+        <binNames value="5297.2Hz"/>
+        <binNames value="5340.2Hz"/>
+        <binNames value="5383.3Hz"/>
+        <binNames value="5426.4Hz"/>
+        <binNames value="5469.4Hz"/>
+        <binNames value="5512.5Hz"/>
+        <binNames value="5555.6Hz"/>
+        <binNames value="5598.6Hz"/>
+        <binNames value="5641.7Hz"/>
+        <binNames value="5684.8Hz"/>
+        <binNames value="5727.8Hz"/>
+        <binNames value="5770.9Hz"/>
+        <binNames value="5814.0Hz"/>
+        <binNames value="5857.0Hz"/>
+        <binNames value="5900.1Hz"/>
+        <binNames value="5943.2Hz"/>
+        <binNames value="5986.2Hz"/>
+        <binNames value="6029.3Hz"/>
+        <binNames value="6072.4Hz"/>
+        <binNames value="6115.4Hz"/>
+        <binNames value="6158.5Hz"/>
+        <binNames value="6201.6Hz"/>
+        <binNames value="6244.6Hz"/>
+        <binNames value="6287.7Hz"/>
+        <binNames value="6330.8Hz"/>
+        <binNames value="6373.8Hz"/>
+        <binNames value="6416.9Hz"/>
+        <binNames value="6460.0Hz"/>
+        <binNames value="6503.0Hz"/>
+        <binNames value="6546.1Hz"/>
+        <binNames value="6589.2Hz"/>
+        <binNames value="6632.2Hz"/>
+        <binNames value="6675.3Hz"/>
+        <binNames value="6718.4Hz"/>
+        <binNames value="6761.4Hz"/>
+        <binNames value="6804.5Hz"/>
+        <binNames value="6847.6Hz"/>
+        <binNames value="6890.6Hz"/>
+        <binNames value="6933.7Hz"/>
+        <binNames value="6976.8Hz"/>
+        <binNames value="7019.8Hz"/>
+        <binNames value="7062.9Hz"/>
+        <binNames value="7106.0Hz"/>
+        <binNames value="7149.0Hz"/>
+        <binNames value="7192.1Hz"/>
+        <binNames value="7235.2Hz"/>
+        <binNames value="7278.2Hz"/>
+        <binNames value="7321.3Hz"/>
+        <binNames value="7364.4Hz"/>
+        <binNames value="7407.4Hz"/>
+        <binNames value="7450.5Hz"/>
+        <binNames value="7493.6Hz"/>
+        <binNames value="7536.6Hz"/>
+        <binNames value="7579.7Hz"/>
+        <binNames value="7622.8Hz"/>
+        <binNames value="7665.8Hz"/>
+        <binNames value="7708.9Hz"/>
+        <binNames value="7752.0Hz"/>
+        <binNames value="7795.0Hz"/>
+        <binNames value="7838.1Hz"/>
+        <binNames value="7881.2Hz"/>
+        <binNames value="7924.2Hz"/>
+        <binNames value="7967.3Hz"/>
+        <binNames value="8010.4Hz"/>
+        <binNames value="8053.4Hz"/>
+        <binNames value="8096.5Hz"/>
+        <binNames value="8139.6Hz"/>
+        <binNames value="8182.6Hz"/>
+        <binNames value="8225.7Hz"/>
+        <binNames value="8268.8Hz"/>
+        <binNames value="8311.8Hz"/>
+        <binNames value="8354.9Hz"/>
+        <binNames value="8397.9Hz"/>
+        <binNames value="8441.0Hz"/>
+        <binNames value="8484.1Hz"/>
+        <binNames value="8527.1Hz"/>
+        <binNames value="8570.2Hz"/>
+        <binNames value="8613.3Hz"/>
+        <binNames value="8656.3Hz"/>
+        <binNames value="8699.4Hz"/>
+        <binNames value="8742.5Hz"/>
+        <binNames value="8785.5Hz"/>
+        <binNames value="8828.6Hz"/>
+        <binNames value="8871.7Hz"/>
+        <binNames value="8914.7Hz"/>
+        <binNames value="8957.8Hz"/>
+        <binNames value="9000.9Hz"/>
+        <binNames value="9043.9Hz"/>
+        <binNames value="9087.0Hz"/>
+        <binNames value="9130.1Hz"/>
+        <binNames value="9173.1Hz"/>
+        <binNames value="9216.2Hz"/>
+        <binNames value="9259.3Hz"/>
+        <binNames value="9302.3Hz"/>
+        <binNames value="9345.4Hz"/>
+        <binNames value="9388.5Hz"/>
+        <binNames value="9431.5Hz"/>
+        <binNames value="9474.6Hz"/>
+        <binNames value="9517.7Hz"/>
+        <binNames value="9560.7Hz"/>
+        <binNames value="9603.8Hz"/>
+        <binNames value="9646.9Hz"/>
+        <binNames value="9689.9Hz"/>
+        <binNames value="9733.0Hz"/>
+        <binNames value="9776.1Hz"/>
+        <binNames value="9819.1Hz"/>
+        <binNames value="9862.2Hz"/>
+        <binNames value="9905.3Hz"/>
+        <binNames value="9948.3Hz"/>
+        <binNames value="9991.4Hz"/>
+        <binNames value="10034.5Hz"/>
+        <binNames value="10077.5Hz"/>
+        <binNames value="10120.6Hz"/>
+        <binNames value="10163.7Hz"/>
+        <binNames value="10206.7Hz"/>
+        <binNames value="10249.8Hz"/>
+        <binNames value="10292.9Hz"/>
+        <binNames value="10335.9Hz"/>
+        <binNames value="10379.0Hz"/>
+        <binNames value="10422.1Hz"/>
+        <binNames value="10465.1Hz"/>
+        <binNames value="10508.2Hz"/>
+        <binNames value="10551.3Hz"/>
+        <binNames value="10594.3Hz"/>
+        <binNames value="10637.4Hz"/>
+        <binNames value="10680.5Hz"/>
+        <binNames value="10723.5Hz"/>
+        <binNames value="10766.6Hz"/>
+        <binNames value="10809.7Hz"/>
+        <binNames value="10852.7Hz"/>
+        <binNames value="10895.8Hz"/>
+        <binNames value="10938.9Hz"/>
+        <binNames value="10981.9Hz"/>
+        <binNames value="11025.0Hz"/>
+        <binNames value="11068.1Hz"/>
+        <binNames value="11111.1Hz"/>
+        <binNames value="11154.2Hz"/>
+        <binNames value="11197.3Hz"/>
+        <binNames value="11240.3Hz"/>
+        <binNames value="11283.4Hz"/>
+        <binNames value="11326.5Hz"/>
+        <binNames value="11369.5Hz"/>
+        <binNames value="11412.6Hz"/>
+        <binNames value="11455.7Hz"/>
+        <binNames value="11498.7Hz"/>
+        <binNames value="11541.8Hz"/>
+        <binNames value="11584.9Hz"/>
+        <binNames value="11627.9Hz"/>
+        <binNames value="11671.0Hz"/>
+        <binNames value="11714.1Hz"/>
+        <binNames value="11757.1Hz"/>
+        <binNames value="11800.2Hz"/>
+        <binNames value="11843.3Hz"/>
+        <binNames value="11886.3Hz"/>
+        <binNames value="11929.4Hz"/>
+        <binNames value="11972.5Hz"/>
+        <binNames value="12015.5Hz"/>
+        <binNames value="12058.6Hz"/>
+        <binNames value="12101.7Hz"/>
+        <binNames value="12144.7Hz"/>
+        <binNames value="12187.8Hz"/>
+        <binNames value="12230.9Hz"/>
+        <binNames value="12273.9Hz"/>
+        <binNames value="12317.0Hz"/>
+        <binNames value="12360.1Hz"/>
+        <binNames value="12403.1Hz"/>
+        <binNames value="12446.2Hz"/>
+        <binNames value="12489.3Hz"/>
+        <binNames value="12532.3Hz"/>
+        <binNames value="12575.4Hz"/>
+        <binNames value="12618.5Hz"/>
+        <binNames value="12661.5Hz"/>
+        <binNames value="12704.6Hz"/>
+        <binNames value="12747.7Hz"/>
+        <binNames value="12790.7Hz"/>
+        <binNames value="12833.8Hz"/>
+        <binNames value="12876.9Hz"/>
+        <binNames value="12919.9Hz"/>
+        <binNames value="12963.0Hz"/>
+        <binNames value="13006.1Hz"/>
+        <binNames value="13049.1Hz"/>
+        <binNames value="13092.2Hz"/>
+        <binNames value="13135.3Hz"/>
+        <binNames value="13178.3Hz"/>
+        <binNames value="13221.4Hz"/>
+        <binNames value="13264.5Hz"/>
+        <binNames value="13307.5Hz"/>
+        <binNames value="13350.6Hz"/>
+        <binNames value="13393.7Hz"/>
+        <binNames value="13436.7Hz"/>
+        <binNames value="13479.8Hz"/>
+        <binNames value="13522.9Hz"/>
+        <binNames value="13565.9Hz"/>
+        <binNames value="13609.0Hz"/>
+        <binNames value="13652.1Hz"/>
+        <binNames value="13695.1Hz"/>
+        <binNames value="13738.2Hz"/>
+        <binNames value="13781.2Hz"/>
+        <binNames value="13824.3Hz"/>
+        <binNames value="13867.4Hz"/>
+        <binNames value="13910.4Hz"/>
+        <binNames value="13953.5Hz"/>
+        <binNames value="13996.6Hz"/>
+        <binNames value="14039.6Hz"/>
+        <binNames value="14082.7Hz"/>
+        <binNames value="14125.8Hz"/>
+        <binNames value="14168.8Hz"/>
+        <binNames value="14211.9Hz"/>
+        <binNames value="14255.0Hz"/>
+        <binNames value="14298.0Hz"/>
+        <binNames value="14341.1Hz"/>
+        <binNames value="14384.2Hz"/>
+        <binNames value="14427.2Hz"/>
+        <binNames value="14470.3Hz"/>
+        <binNames value="14513.4Hz"/>
+        <binNames value="14556.4Hz"/>
+        <binNames value="14599.5Hz"/>
+        <binNames value="14642.6Hz"/>
+        <binNames value="14685.6Hz"/>
+        <binNames value="14728.7Hz"/>
+        <binNames value="14771.8Hz"/>
+        <binNames value="14814.8Hz"/>
+        <binNames value="14857.9Hz"/>
+        <binNames value="14901.0Hz"/>
+        <binNames value="14944.0Hz"/>
+        <binNames value="14987.1Hz"/>
+        <binNames value="15030.2Hz"/>
+        <binNames value="15073.2Hz"/>
+        <binNames value="15116.3Hz"/>
+        <binNames value="15159.4Hz"/>
+        <binNames value="15202.4Hz"/>
+        <binNames value="15245.5Hz"/>
+        <binNames value="15288.6Hz"/>
+        <binNames value="15331.6Hz"/>
+        <binNames value="15374.7Hz"/>
+        <binNames value="15417.8Hz"/>
+        <binNames value="15460.8Hz"/>
+        <binNames value="15503.9Hz"/>
+        <binNames value="15547.0Hz"/>
+        <binNames value="15590.0Hz"/>
+        <binNames value="15633.1Hz"/>
+        <binNames value="15676.2Hz"/>
+        <binNames value="15719.2Hz"/>
+        <binNames value="15762.3Hz"/>
+        <binNames value="15805.4Hz"/>
+        <binNames value="15848.4Hz"/>
+        <binNames value="15891.5Hz"/>
+        <binNames value="15934.6Hz"/>
+        <binNames value="15977.6Hz"/>
+        <binNames value="16020.7Hz"/>
+        <binNames value="16063.8Hz"/>
+        <binNames value="16106.8Hz"/>
+        <binNames value="16149.9Hz"/>
+        <binNames value="16193.0Hz"/>
+        <binNames value="16236.0Hz"/>
+        <binNames value="16279.1Hz"/>
+        <binNames value="16322.2Hz"/>
+        <binNames value="16365.2Hz"/>
+        <binNames value="16408.3Hz"/>
+        <binNames value="16451.4Hz"/>
+        <binNames value="16494.4Hz"/>
+        <binNames value="16537.5Hz"/>
+        <binNames value="16580.6Hz"/>
+        <binNames value="16623.6Hz"/>
+        <binNames value="16666.7Hz"/>
+        <binNames value="16709.8Hz"/>
+        <binNames value="16752.8Hz"/>
+        <binNames value="16795.9Hz"/>
+        <binNames value="16839.0Hz"/>
+        <binNames value="16882.0Hz"/>
+        <binNames value="16925.1Hz"/>
+        <binNames value="16968.2Hz"/>
+        <binNames value="17011.2Hz"/>
+        <binNames value="17054.3Hz"/>
+        <binNames value="17097.4Hz"/>
+        <binNames value="17140.4Hz"/>
+        <binNames value="17183.5Hz"/>
+        <binNames value="17226.6Hz"/>
+        <binNames value="17269.6Hz"/>
+        <binNames value="17312.7Hz"/>
+        <binNames value="17355.8Hz"/>
+        <binNames value="17398.8Hz"/>
+        <binNames value="17441.9Hz"/>
+        <binNames value="17485.0Hz"/>
+        <binNames value="17528.0Hz"/>
+        <binNames value="17571.1Hz"/>
+        <binNames value="17614.2Hz"/>
+        <binNames value="17657.2Hz"/>
+        <binNames value="17700.3Hz"/>
+        <binNames value="17743.4Hz"/>
+        <binNames value="17786.4Hz"/>
+        <binNames value="17829.5Hz"/>
+        <binNames value="17872.6Hz"/>
+        <binNames value="17915.6Hz"/>
+        <binNames value="17958.7Hz"/>
+        <binNames value="18001.8Hz"/>
+        <binNames value="18044.8Hz"/>
+        <binNames value="18087.9Hz"/>
+        <binNames value="18131.0Hz"/>
+        <binNames value="18174.0Hz"/>
+        <binNames value="18217.1Hz"/>
+        <binNames value="18260.2Hz"/>
+        <binNames value="18303.2Hz"/>
+        <binNames value="18346.3Hz"/>
+        <binNames value="18389.4Hz"/>
+        <binNames value="18432.4Hz"/>
+        <binNames value="18475.5Hz"/>
+        <binNames value="18518.6Hz"/>
+        <binNames value="18561.6Hz"/>
+        <binNames value="18604.7Hz"/>
+        <binNames value="18647.8Hz"/>
+        <binNames value="18690.8Hz"/>
+        <binNames value="18733.9Hz"/>
+        <binNames value="18777.0Hz"/>
+        <binNames value="18820.0Hz"/>
+        <binNames value="18863.1Hz"/>
+        <binNames value="18906.2Hz"/>
+        <binNames value="18949.2Hz"/>
+        <binNames value="18992.3Hz"/>
+        <binNames value="19035.4Hz"/>
+        <binNames value="19078.4Hz"/>
+        <binNames value="19121.5Hz"/>
+        <binNames value="19164.6Hz"/>
+        <binNames value="19207.6Hz"/>
+        <binNames value="19250.7Hz"/>
+        <binNames value="19293.8Hz"/>
+        <binNames value="19336.8Hz"/>
+        <binNames value="19379.9Hz"/>
+        <binNames value="19422.9Hz"/>
+        <binNames value="19466.0Hz"/>
+        <binNames value="19509.1Hz"/>
+        <binNames value="19552.1Hz"/>
+        <binNames value="19595.2Hz"/>
+        <binNames value="19638.3Hz"/>
+        <binNames value="19681.3Hz"/>
+        <binNames value="19724.4Hz"/>
+        <binNames value="19767.5Hz"/>
+        <binNames value="19810.5Hz"/>
+        <binNames value="19853.6Hz"/>
+        <binNames value="19896.7Hz"/>
+        <binNames value="19939.7Hz"/>
+        <binNames value="19982.8Hz"/>
+        <binNames value="20025.9Hz"/>
+        <binNames value="20068.9Hz"/>
+        <binNames value="20112.0Hz"/>
+        <binNames value="20155.1Hz"/>
+        <binNames value="20198.1Hz"/>
+        <binNames value="20241.2Hz"/>
+        <binNames value="20284.3Hz"/>
+        <binNames value="20327.3Hz"/>
+        <binNames value="20370.4Hz"/>
+        <binNames value="20413.5Hz"/>
+        <binNames value="20456.5Hz"/>
+        <binNames value="20499.6Hz"/>
+        <binNames value="20542.7Hz"/>
+        <binNames value="20585.7Hz"/>
+        <binNames value="20628.8Hz"/>
+        <binNames value="20671.9Hz"/>
+        <binNames value="20714.9Hz"/>
+        <binNames value="20758.0Hz"/>
+        <binNames value="20801.1Hz"/>
+        <binNames value="20844.1Hz"/>
+        <binNames value="20887.2Hz"/>
+        <binNames value="20930.3Hz"/>
+        <binNames value="20973.3Hz"/>
+        <binNames value="21016.4Hz"/>
+        <binNames value="21059.5Hz"/>
+        <binNames value="21102.5Hz"/>
+        <binNames value="21145.6Hz"/>
+        <binNames value="21188.7Hz"/>
+        <binNames value="21231.7Hz"/>
+        <binNames value="21274.8Hz"/>
+        <binNames value="21317.9Hz"/>
+        <binNames value="21360.9Hz"/>
+        <binNames value="21404.0Hz"/>
+        <binNames value="21447.1Hz"/>
+        <binNames value="21490.1Hz"/>
+        <binNames value="21533.2Hz"/>
+        <binNames value="21576.3Hz"/>
+        <binNames value="21619.3Hz"/>
+        <binNames value="21662.4Hz"/>
+        <binNames value="21705.5Hz"/>
+        <binNames value="21748.5Hz"/>
+        <binNames value="21791.6Hz"/>
+        <binNames value="21834.7Hz"/>
+        <binNames value="21877.7Hz"/>
+        <binNames value="21920.8Hz"/>
+        <binNames value="21963.9Hz"/>
+        <binNames value="22006.9Hz"/>
+        <binNames value="22050.0Hz"/>
+      </output>
+    </description>
+    <key identifier="partiels-vamp-plugins:partielsspectrogram" feature="energies"/>
+    <state blockSize="1024" stepSize="512" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ffff0000" duration="66000000"
+               text="ff000000" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="-120.0" globalRange_end="6.0"
+               minimumLength="1.192092895507812e-7" visibleRange_start="-120.0"
+               visibleRange_end="6.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="22050.0"
+             minimumLength="1.192092895507812e-7" visibleRange_start="0.0"
+             visibleRange_end="5793.006863665891">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="1188cb0d36174d35827cee0e8918cfed"
+          name="CLAP Reference - Best Class" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="120" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="" commit=""/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="CLAP Reference" inputDomain="0" maker="Ircam" version="1"
+                 category="Audio Tagging by Reference" details="Audio tagging and search by reference (query by example) using the audio embeddings of the CLAP and CLAP2 models of LAION. The references are regions of the audio stream provided as precomputed markers with a duration (for example the annotations of the host), the label of the marker being the class of the reference (the markers without duration define a region of the window size centered on the marker). The embeddings of the references of each class are averaged and the plugin generates over time the similarity scores between each audio window and each class as well as tags carrying the most similar class with its score (that can be used to filter the tags in the host). The classes can be organized hierarchically with slashes (for example, Animal/Bird/Owl), the references of a class being also used for its parent classes, and the tag is the most similar class among all the levels. With a single class, the similarity output finds the parts of the audio stream that sound like the references. The features are generated at the end of the analysis."
+                 copyright="CLAP and CLAP2 models by LAION. CLAP.cpp by Gorse. Clap Vamp Plugin by Pierre Guillot. Copyright 2026 Ircam. MIT License.">
+      <defaultState blockSize="1024" stepSize="0" windowType="3">
+        <parameters key="hopsize" value="1.0"/>
+        <parameters key="model" value="0.0"/>
+        <parameters key="windowsize" value="5.0"/>
+      </defaultState>
+      <parameters>
+        <value identifier="model" name="Model" description="The model used to generate the embeddings (the embedded models are listed first, followed by the models of the directory defined by the CLAPMODELSPATH environment variable)"
+               unit="" minValue="0.0" maxValue="5.0" defaultValue="0.0" isQuantized="1"
+               quantizeStep="1.0" isAlias="0">
+          <valueNames value="1. CLAP2 Small (F16)"/>
+          <valueNames value="2. CLAP2 XXS (F16)"/>
+          <valueNames value="3. CLAP General (Q8_0)"/>
+          <valueNames value="4. CLAP General (Q4_K_M)"/>
+          <valueNames value="5. CLAP Music and Speech (Q8_0)"/>
+          <valueNames value="6. CLAP Music and Speech (Q4_K_M)"/>
+        </value>
+      </parameters>
+      <parameters>
+        <value identifier="windowsize" name="Window Size" description="The duration of the analysis windows, in seconds"
+               unit="s" minValue="1.0" maxValue="10.0" defaultValue="5.0" isQuantized="1"
+               quantizeStep="0.5" isAlias="0"/>
+      </parameters>
+      <parameters>
+        <value identifier="hopsize" name="Hop Size" description="The duration between two analysis windows, in seconds (the computation time is proportional to the number of windows)"
+               unit="s" minValue="0.1000000014901161" maxValue="10.0" defaultValue="1.0"
+               isQuantized="1" quantizeStep="0.1000000014901161" isAlias="0"/>
+      </parameters>
+      <output identifier="tag" name="Best Class" description="The most similar class of the audio window among all the levels of the hierarchical classes, with its similarity score"
+              unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+              minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+              sampleType="2" sampleRate="0.0" hasDuration="1"/>
+      <extraOutputs>
+        <value identifier="similarity" name="Similarity" description="The similarity score of the tagged class"
+               unit="" hasKnownExtents="1" minValue="0.5" maxValue="1.0" isQuantized="0"
+               quantizeStep="0.0"/>
+      </extraOutputs>
+      <inputs>
+        <value identifier="reference" name="Reference" description="The audio regions used as references, one marker per region with the class as label (e.g. the annotations of the host), the levels of the hierarchical classes being separated by slashes (e.g. Bird/Blackbird and Bird/Robin)"
+               unit="" hasFixedBinCount="1" binCount="0" hasKnownExtents="0"
+               minValue="0.0" maxValue="0.0" isQuantized="0" quantizeStep="0.0"
+               sampleType="2" sampleRate="0.0" hasDuration="1"/>
+      </inputs>
+    </description>
+    <key identifier="ircamclap:clapreference" feature="tag"/>
+    <inputs key="reference" value="7b337ac776f043039460b810d9b8b476"/>
+    <state blockSize="1024" stepSize="0" windowType="3">
+      <parameters key="hopsize" value="1.0"/>
+      <parameters key="model" value="0.0"/>
+      <parameters key="windowsize" value="4.0"/>
+    </state>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="1">
+      <colours map="7" background="0" foreground="ffffee00" duration="ffffee00"
+               text="ffffee00" shadow="0"/>
+      <labelLayout position="12.0" justification="1"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <extraThresholds>
+      <value value="0.9318926930427551"/>
+    </extraThresholds>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+  <tracks MiscModelVersion="132608" identifier="7b337ac776f043039460b810d9b8b476"
+          name="Marker - Reference" voiceLink="" useInputResultsExtraThresholds="1"
+          sampleRate="44100.0" height="120" showInGroup="1" oscIdentifier=""
+          sendViaOsc="0" zoomValueMode="0" zoomLogScale="0" zoomLink="1">
+    <file path="/Users/guillot/Git/vamp-plugins/clap-vamp-plugin/test/clap_ConsolidatedFiles/Track/7b337ac776f043039460b810d9b8b476-53d43d1181fe4d41ae0328bbd05f30d1.dat"
+          commit="53d43d1181fe4d41ae0328bbd05f30d1"/>
+    <fileDescription path="" format="0" extension="" csvHeaderType="0" reaperType="0"
+                     columnSeparator="0" disableLabelEscaping="0" includeDescription="1"
+                     sdifFrameSignature="????" sdifMatrixSignature="????"/>
+    <description name="New Track" inputDomain="0" maker="Factory" version="1"
+                 category="" details="Add an empty track." copyright="Partiels factory plugin.">
+      <defaultState blockSize="256" stepSize="0" windowType="3"/>
+      <output identifier="markers" name="Marker" description="Marker" unit=""
+              hasFixedBinCount="1" binCount="0" hasKnownExtents="0" minValue="0.0"
+              maxValue="0.0" isQuantized="0" quantizeStep="0.0" sampleType="2"
+              sampleRate="0.0" hasDuration="0"/>
+    </description>
+    <key identifier="partiels-vamp-plugins:partielsnewtrack" feature="markers"/>
+    <state blockSize="256" stepSize="0" windowType="3"/>
+    <graphicsSettings font="Nunito Sans; 14.0 Regular" lineWidth="1.0" markerStyle="0">
+      <colours map="7" background="0" foreground="ff26ff00" duration="7026ff00"
+               text="ff26ff00" shadow="0"/>
+      <labelLayout position="12.0" justification="0"/>
+    </graphicsSettings>
+    <channelsLayout value="1"/>
+    <valueZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+               minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </valueZoom>
+    <binZoom MiscModelVersion="132608" globalRange_start="0.0" globalRange_end="0.0"
+             minimumLength="0.0" visibleRange_start="0.0" visibleRange_end="0.0">
+      <grid MiscModelVersion="132608" tickReference="0.0" mainTickInterval="3"
+            tickPowerBase="2.0" tickDivisionFactor="5.0"/>
+    </binZoom>
+  </tracks>
+</document>

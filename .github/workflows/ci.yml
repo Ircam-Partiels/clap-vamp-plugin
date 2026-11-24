@@ -1,0 +1,270 @@
+name: CI
+
+on: [push, pull_request]
+
+# The jobs only read the repository, the Release job requests the write permission.
+permissions:
+  contents: read
+
+# Cancels the previous runs of the same branch (but never the runs of the tags).
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+env:
+  # Enables the sccache GitHub Actions storage backend to keep the compiler cache between builds.
+  SCCACHE_GHA_ENABLED: "true"
+  # Checks for the '[debug]' string in the commit message to compile as debug instead of release.
+  build_type: ${{ contains(github.event.head_commit.message, '[debug]') && 'Debug' || 'Release' }}
+  # Checks whether the event corresponds to a tag to activate the automatic creation of a release.
+  is_tagged: ${{ startsWith(github.ref, 'refs/tags/') }}
+  # The name of the version
+  tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || ''}}
+  # The artifacts contain the models (about 1 GB per OS), hence they are only kept for a short time except for the tags.
+  retention_days: ${{ startsWith(github.ref, 'refs/tags/') && 90 || 7 }}
+
+# The third-party actions are pinned to a commit (with the corresponding version in comment)
+# because the MacOS job has access to the signing certificates and the notarization credentials.
+jobs:
+  # Checks source code formatting with clang before compiling.
+  # The pull requests of the branches of the repository are already built by
+  # the push event, hence only the pull requests from forks are built (the
+  # other jobs depend on this one and are skipped with it).
+  Format:
+    if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+    - name: Check
+      uses: jidicula/clang-format-action@654a770daa28443dd111d133e4083e21c1075674 # v4.18.0
+      with:
+        clang-format-version: '19'
+        check-path: '.'
+        exclude-regex: 'clap.cpp'
+  # Creates a cache for the gguf models listed in resource/models.txt and
+  # copied into the Resources folder of the Vamp bundle. Configures the
+  # project in models-only mode so that neither Clap.cpp nor the other
+  # dependencies (submodules) are required to download the models.
+  Cache:
+    runs-on: ubuntu-latest
+    needs: Format
+    steps:
+    - uses: actions/checkout@v7
+    - name: Cache
+      uses: actions/cache@v6
+      with:
+        path: ./build/models
+        key: cvp-models-${{ hashFiles('resource/models.txt') }}
+        enableCrossOsArchive: true
+    - name: Configure
+      run: cmake -B ${{ github.workspace }}/build -DCMAKE_BUILD_TYPE=${{ env.build_type }} -DCVP_MODELS_ONLY=ON
+  # Compiles, tests and packages the plugin for Ubuntu.
+  Ubuntu:
+    runs-on: ubuntu-22.04
+    needs: Cache
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        submodules: recursive
+    - name: Cache
+      uses: actions/cache@v6
+      with:
+        path: ./build/models
+        key: cvp-models-${{ hashFiles('resource/models.txt') }}
+        enableCrossOsArchive: true
+    - uses: seanmiddleditch/gha-setup-ninja@7e868db0f3406270dd46e1dac26c65f621456723 # master
+    - name: Sccache
+      uses: mozilla-actions/sccache-action@fc920bf0ec8de6ee65d409111f7ec508035751ba # v0.0.11
+    - name: Configure
+      run: cmake -B ${{ github.workspace }}/build -G Ninja -DCMAKE_BUILD_TYPE=${{ env.build_type }} -DCMAKE_C_COMPILER="/usr/bin/clang" -DCMAKE_CXX_COMPILER="/usr/bin/clang++" -DCVP_BUILD_TAG=${{ env.tag_name }} -DCVP_ENABLE_DEBUG=OFF -DCVP_USE_SCCACHE=ON
+    - name: Build
+      run: cmake --build ${{ github.workspace }}/build
+    - name: Test
+      run: ctest -C ${{ env.build_type }} -VV --test-dir ${{ github.workspace }}/build
+    - name: Package
+      run: cmake -E chdir ${{ github.workspace }}/build/${{ env.build_type }} cmake -E tar cf ${{ github.workspace }}/Clap-Vamp-Linux.zip --format=zip ircamclap.vamp
+    - name: Artifact
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: Clap-Vamp-Linux
+        path: ${{ github.workspace }}/Clap-Vamp-Linux.zip
+        retention-days: ${{ env.retention_days }}
+    - name: Artifact
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: Clap-Linux
+        path: ${{ github.workspace }}/package/Clap-Linux.zip
+        retention-days: ${{ env.retention_days }}
+  # Compiles, tests and packages the plugin for Windows.
+  Windows:
+    runs-on: windows-latest
+    needs: Cache
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        submodules: recursive
+    - name: Cache
+      uses: actions/cache@v6
+      with:
+        path: ./build/models
+        key: cvp-models-${{ hashFiles('resource/models.txt') }}
+        enableCrossOsArchive: true
+    - name: Developer Command Prompt
+      uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756 # v1
+      with:
+        arch: x64
+    - uses: seanmiddleditch/gha-setup-ninja@7e868db0f3406270dd46e1dac26c65f621456723 # master
+    - name: Sccache
+      uses: mozilla-actions/sccache-action@fc920bf0ec8de6ee65d409111f7ec508035751ba # v0.0.11
+    - name: Configure
+      run: cmake -B ${{ github.workspace }}/build -G Ninja -DCMAKE_BUILD_TYPE=${{ env.build_type }} -DCVP_BUILD_TAG="${{ env.tag_name }}" -DCVP_ENABLE_DEBUG=OFF -DCVP_USE_SCCACHE=ON
+    - name: Build
+      run: cmake --build ${{ github.workspace }}/build
+    - name: Test
+      run: ctest -C ${{ env.build_type }} -VV --test-dir ${{ github.workspace }}/build
+    - name: Package
+      run: cmake -E chdir ${{ github.workspace }}/build/${{ env.build_type }} cmake -E tar cf ${{ github.workspace }}/Clap-Vamp-Windows.zip --format=zip ircamclap.vamp
+    - name: Artifact
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: Clap-Vamp-Windows
+        path: ${{ github.workspace }}/Clap-Vamp-Windows.zip
+        retention-days: ${{ env.retention_days }}
+    - name: Artifact
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: Clap-Windows
+        path: ${{ github.workspace }}/package/Clap-Windows.exe
+        retention-days: ${{ env.retention_days }}
+  # Compiles, tests and packages the plugin for MacOS.
+  # The plugin is only signed and notarized when the secrets are available
+  # (they are not for the pull requests from forks).
+  MacOS:
+    runs-on: macos-latest
+    needs: Cache
+    env:
+      DEV_ID_PASSWORD: ${{ secrets.DEV_ID_PASSWORD }}
+      DEV_ID_APP_CERT: ${{ secrets.DEV_ID_APP_CERT }}
+      DEV_ID_INST_CERT: ${{ secrets.DEV_ID_INST_CERT }}
+      DEV_USER_APPLE_ID: ${{ secrets.DEV_USER_APPLE_ID }}
+      DEV_TEAM_APPLE_ID: ${{ secrets.DEV_TEAM_APPLE_ID }}
+      DEV_SPEC_APP_PASSWORD: ${{ secrets.DEV_SPEC_APP_PASSWORD }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v7
+      with:
+        submodules: recursive
+    - name: Cache
+      uses: actions/cache@v6
+      with:
+        path: ./build/models
+        key: cvp-models-${{ hashFiles('resource/models.txt') }}
+        enableCrossOsArchive: true
+    - name: Prepare
+      if: ${{ env.DEV_ID_PASSWORD != '' }}
+      run: |
+        security create-keychain -p "$DEV_ID_PASSWORD" buildagent
+        security unlock-keychain -p "$DEV_ID_PASSWORD" buildagent
+        security list-keychains -s buildagent && security default-keychain -s buildagent
+        printf '%s' "$DEV_ID_APP_CERT" | base64 --decode > ./cert.p12
+        security import ./cert.p12 -P "$DEV_ID_PASSWORD" -A -t cert -f pkcs12 -k buildagent -T /usr/bin/codesign >/dev/null
+        rm ./cert.p12
+        printf '%s' "$DEV_ID_INST_CERT" | base64 --decode > ./cert.p12
+        security import ./cert.p12 -P "$DEV_ID_PASSWORD" -A -t cert -f pkcs12 -k buildagent -T /usr/bin/codesign >/dev/null
+        rm ./cert.p12
+        security set-key-partition-list -S "apple-tool:,apple:,codesign:" -s -k "$DEV_ID_PASSWORD" buildagent >/dev/null
+        xcrun notarytool store-credentials "notary-installer" --apple-id "$DEV_USER_APPLE_ID" --team-id "$DEV_TEAM_APPLE_ID" --password "$DEV_SPEC_APP_PASSWORD" >/dev/null
+    - uses: seanmiddleditch/gha-setup-ninja@7e868db0f3406270dd46e1dac26c65f621456723 # master
+    - name: Sccache
+      uses: mozilla-actions/sccache-action@fc920bf0ec8de6ee65d409111f7ec508035751ba # v0.0.11
+    - name: Configure
+      run: |
+        NOTARIZE_ARGS=""
+        if [ -n "$DEV_ID_PASSWORD" ]; then
+          NOTARIZE_ARGS="-DVPP_CODESIGN_APPLE_KEYCHAIN_PROFILE_INSTALLER=notary-installer -DVPP_NOTARIZE=ON"
+        fi
+        cmake -B ${{ github.workspace }}/build -G Ninja $NOTARIZE_ARGS -DCMAKE_BUILD_TYPE=${{ env.build_type }} -DCVP_BUILD_TAG=${{ env.tag_name }} -DCVP_ENABLE_DEBUG=OFF -DCVP_USE_SCCACHE=ON
+    - name: Build
+      run: |
+        if [ -n "$DEV_ID_PASSWORD" ]; then
+          security unlock-keychain -p "$DEV_ID_PASSWORD" buildagent
+          security set-keychain-settings -lut 7200 buildagent
+        fi
+        cmake --build ${{ github.workspace }}/build
+    - name: Test
+      run: ctest -C ${{ env.build_type }} -VV --test-dir ${{ github.workspace }}/build
+    - name: Package
+      run: cmake -E chdir ${{ github.workspace }}/build/${{ env.build_type }} cmake -E tar cf ${{ github.workspace }}/Clap-Vamp-MacOS.zip --format=zip ircamclap.vamp
+    - name: Artifact
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: Clap-Vamp-MacOS
+        path: ${{ github.workspace }}/Clap-Vamp-MacOS.zip
+        retention-days: ${{ env.retention_days }}
+    - name: Artifact
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: Clap-MacOS
+        path: ${{ github.workspace }}/package/Clap-MacOS.pkg
+        retention-days: ${{ env.retention_days }}
+  # Generates the documentation and the release notes.
+  # Configures the project in manual-only mode so that neither the models,
+  # Clap.cpp nor the submodules are required to generate the documentation.
+  Doc:
+    runs-on: ubuntu-latest
+    needs: Format
+    steps:
+    - uses: actions/checkout@v7
+    - uses: actions/setup-node@v7
+      with:
+        node-version: 24
+    - run: npm install -g git+https://github.com/elliotblackburn/mdpdf.git#3.0.4
+    - name: Configure
+      run: cmake -B ${{ github.workspace }}/build -DCMAKE_BUILD_TYPE=${{ env.build_type }} -DCVP_BUILD_TAG=${{ env.tag_name }} -DCVP_MANUAL_ONLY=ON
+    - name: Build
+      run: cmake --build build --target cvp_manual
+    - name: Artifact
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: Clap-Manual
+        path: ${{ github.workspace }}/build/Manual
+        retention-days: ${{ env.retention_days }}
+    - name: Release Notes
+      if: ${{ env.is_tagged == 'true' }}
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: Clap-Release-Notes
+        path: ${{ github.workspace }}/build/clap-release.md
+        retention-days: ${{ env.retention_days }}
+  # Creates the draft release with the packages of all the OS and the manual.
+  # A single job creates the release so that the parallel jobs do not create
+  # several draft releases for the same tag.
+  Release:
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    runs-on: ubuntu-latest
+    needs: [Ubuntu, Windows, MacOS, Doc]
+    permissions:
+      contents: write
+    steps:
+    - name: Download
+      uses: actions/download-artifact@v8
+      with:
+        path: ${{ github.workspace }}/artifacts
+    - name: Manual
+      run: cd ${{ github.workspace }}/artifacts/Clap-Manual && zip -r ${{ github.workspace }}/artifacts/Clap-Manual.zip .
+    - name: Release
+      uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3
+      with:
+        draft: true
+        prerelease: true
+        fail_on_unmatched_files: true
+        generate_release_notes: true
+        body_path: ${{ github.workspace }}/artifacts/Clap-Release-Notes/clap-release.md
+        files: |
+          ${{ github.workspace }}/artifacts/Clap-Linux/Clap-Linux.zip
+          ${{ github.workspace }}/artifacts/Clap-Vamp-Linux/Clap-Vamp-Linux.zip
+          ${{ github.workspace }}/artifacts/Clap-Windows/Clap-Windows.exe
+          ${{ github.workspace }}/artifacts/Clap-Vamp-Windows/Clap-Vamp-Windows.zip
+          ${{ github.workspace }}/artifacts/Clap-MacOS/Clap-MacOS.pkg
+          ${{ github.workspace }}/artifacts/Clap-Vamp-MacOS/Clap-Vamp-MacOS.zip
+          ${{ github.workspace }}/artifacts/Clap-Manual.zip

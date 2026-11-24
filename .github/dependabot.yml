@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # Keeps the GitHub Actions of the CI workflow up to date. The actions pinned
+  # to a commit are updated to the commit of the new version (with the
+  # corresponding version in comment).
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: ".github/workflows"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+  # Keeps the submodules (ircam-vamp-extension, vamp-plugin-packager and clap.cpp) up to date.
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "submodules"
