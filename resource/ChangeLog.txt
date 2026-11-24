@@ -1,0 +1,4 @@
+- Version 1.0.0: First release of the Clap plugins
+  - CLAP Prompt: zero-shot audio tagging with text prompts (similarity scores and probabilities), with hierarchical prompts (levels separated by slashes)
+  - CLAP Reference: audio tagging and search by reference (query by example) with annotated audio regions
+  - CLAP Novelty: detection of the changes in the audio stream (novelty curve and boundaries)
